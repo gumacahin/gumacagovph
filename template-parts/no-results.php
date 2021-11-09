@@ -18,10 +18,12 @@
 
 			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'gwt_wp' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-			<?php /*  elseif ( is_search() ) : ?>
+			<?php
+			/*  elseif ( is_search() ) : ?>
 
 			<p><?php _e( 'Sorry, but nothing matched your search terms. Perhaps searching can help.', 'gwt_wp' ); ?></p>
-			<?php get_search_form(); */ ?>
+			<?php get_search_form(); */
+			?>
 
 		<?php else : ?>
 

@@ -8,13 +8,13 @@
 ?>
 
 <div class="post-box">
-	<article id="post-<?php the_ID(); ?>" <?php post_class('callout secondary'); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'callout secondary' ); ?>>
 		
 		<?php
 			$content_class = 'large-12';
-			if(has_post_thumbnail()) : 
-				$content_class = 'large-9';
-				the_post_thumbnail( 'thumbnail', array( 'class' => 'thumbnail') );
+		if ( has_post_thumbnail() ) :
+			$content_class = 'large-9';
+			the_post_thumbnail( 'thumbnail', array( 'class' => 'thumbnail' ) );
 			endif;
 		?>
 		
@@ -37,10 +37,12 @@
 				<div class="entry-content">
 					<?php the_excerpt(); ?>
 					<?php
-						wp_link_pages( array(
-							'before' => '<div class="page-links">' . __( 'Pages:', 'gwt_wp' ),
-							'after'  => '</div>',
-						) );
+						wp_link_pages(
+							array(
+								'before' => '<div class="page-links">' . __( 'Pages:', 'gwt_wp' ),
+								'after'  => '</div>',
+							)
+						);
 					?>
 				</div>
 			<?php endif; ?>

@@ -10,8 +10,8 @@ class govph_widget_pst extends WP_Widget {
 
 	function __construct() {
 		// Instantiate the parent object
-		$widget_ops = array( 
-			'classname' => 'pst_widget',
+		$widget_ops = array(
+			'classname'   => 'pst_widget',
 			'description' => 'A widget for Philippine Standard Time.',
 		);
 		parent::__construct( 'govph_widget_pst', 'Philippine Standard Time', $widget_ops );
@@ -40,8 +40,8 @@ class govph_widget_transparency extends WP_Widget {
 
 	function __construct() {
 		// Instantiate the parent object
-		$widget_ops = array( 
-			'classname' => 'transparency_widget',
+		$widget_ops = array(
+			'classname'   => 'transparency_widget',
 			'description' => 'A widget for Transparency Seal logo.',
 		);
 		parent::__construct( 'govph_widget_transparency', 'Transparency Seal', $widget_ops );
@@ -51,14 +51,14 @@ class govph_widget_transparency extends WP_Widget {
 		// Widget output
 		echo $args['before_widget'];
 		if ( ! empty( $instance['url'] ) ) {
-			echo '<a href="'.$instance['url'].'"><img id="tp-seal" src="'. get_template_directory_uri() .'/images/transparency-seal-160x160.png" alt="transparency seal logo" title="Transparency Seal"></a>';
+			echo '<a href="' . $instance['url'] . '"><img id="tp-seal" src="' . get_template_directory_uri() . '/images/transparency-seal-160x160.png" alt="transparency seal logo" title="Transparency Seal"></a>';
 		}
 		echo $args['after_widget'];
 	}
 
 	function update( $new_instance, $old_instance ) {
 		// Save widget options
-		$instance = array();
+		$instance        = array();
 		$instance['url'] = ( ! empty( $new_instance['url'] ) ) ? strip_tags( $new_instance['url'] ) : 'http://domain.gov.ph/transparency';
 
 		return $instance;

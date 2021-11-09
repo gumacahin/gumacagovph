@@ -49,9 +49,13 @@ function gwt_upgrade_notice() {
  * @global string $wp_version WordPress version.
  */
 function gwt_customize() {
-	wp_die( sprintf( __( 'GWT requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'gwt' ), $GLOBALS['wp_version'] ), '', array(
-		'back_link' => true,
-	) );
+	wp_die(
+		sprintf( __( 'GWT requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'gwt' ), $GLOBALS['wp_version'] ),
+		'',
+		array(
+			'back_link' => true,
+		)
+	);
 }
 add_action( 'load-customize.php', 'gwt_customize' );
 
