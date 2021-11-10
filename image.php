@@ -7,7 +7,7 @@
  */
 
 get_header();
-include_once( 'inc/banner.php' );
+require_once 'inc/banner.php';
 ?>
 
 	<div id="container-main" class="container-main" role="document">
@@ -33,7 +33,7 @@ include_once( 'inc/banner.php' );
 								$metadata['width'],
 								$metadata['height'],
 								esc_url( get_permalink( $post->post_parent ) ),
-								esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
+								esc_attr( wp_strip_all_tags( get_the_title( $post->post_parent ) ) ),
 								get_the_title( $post->post_parent )
 							);
 
@@ -73,13 +73,13 @@ include_once( 'inc/banner.php' );
 
 				<footer class="entry-meta">
 					<?php
-					if ( comments_open() && pings_open() ) : // Comments and trackbacks open
+					if ( comments_open() && pings_open() ) : // Comments and trackbacks open.
 						printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'gwt_wp' ), esc_url( get_trackback_url() ) );
-						elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open
+						elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open.
 							printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'gwt_wp' ), esc_url( get_trackback_url() ) );
-						elseif ( comments_open() && ! pings_open() ) : // Only comments open
-							 _e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', 'gwt_wp' );
-						elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed
+						elseif ( comments_open() && ! pings_open() ) : // Only comments open.
+							_e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', 'gwt_wp' );
+						elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed.
 							_e( 'Both comments and trackbacks are currently closed.', 'gwt_wp' );
 						endif;
 
@@ -89,7 +89,7 @@ include_once( 'inc/banner.php' );
 			</article><!-- #post-## -->
 
 			<?php
-				// If comments are open or we have at least one comment, load up the comment template
+				// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || '0' != get_comments_number() ) {
 				comments_template();
 			}

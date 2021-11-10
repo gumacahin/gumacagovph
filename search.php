@@ -7,7 +7,7 @@
  */
 
 get_header();
-include_once( 'inc/banner.php' );
+require_once 'inc/banner.php';
 ?>
 
 <div id="main-content" class="container-main" role="document">
@@ -43,7 +43,7 @@ include_once( 'inc/banner.php' );
 			govph_displayoptions( 'govph_sidebar_right' );
 		}
 		?>
-				
+
 	</div>
 </div>
 

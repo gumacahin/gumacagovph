@@ -1,9 +1,11 @@
 <?php
 /**
- * @file
- * breadcrumb file template
+ * Breadcrumb file template.
+ *
+ * @package GWT
  */
-// TODO: add a widget that can replace the default breadcrumb
+
+// TODO: add a widget that can replace the default breadcrumb.
 ?>
 
 <nav id="breadcrumbs" class="anchor" aria-label="You are here:" role="navigation">

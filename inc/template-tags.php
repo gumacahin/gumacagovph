@@ -9,7 +9,9 @@
 
 if ( ! function_exists( 'gwt_wp_content_nav' ) ) :
 	/**
-	 * Display navigation to next/previous pages when applicable
+	 * Display navigation to next/previous pages when applicable.
+	 *
+	 * @param type $nav_id navigation ID.
 	 */
 	function gwt_wp_content_nav( $nav_id ) {
 		global $wp_query, $post;
@@ -32,16 +34,16 @@ if ( ! function_exists( 'gwt_wp_content_nav' ) ) :
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 
 		?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h4><?php _e( 'Post navigation', 'gwt_wp' ); ?></h4>
+	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
+		<h4><?php esc_html_e( 'Post navigation', 'gwt_wp' ); ?></h4>
 		<label class="show-for-sr">Post navigation</label>
 
-		<?php if ( is_single() ) : // navigation links for single posts ?>
+		<?php if ( is_single() ) : // navigation links for single posts. ?>
 
 			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'gwt_wp' ) . '</span> %title' ); ?>
 			<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'gwt_wp' ) . '</span>' ); ?>
 
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages. ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
 		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'gwt_wp' ) ); ?></div>
@@ -56,23 +58,27 @@ if ( ! function_exists( 'gwt_wp_content_nav' ) ) :
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 		<?php
 	}
-endif; // gwt_wp_content_nav
+endif; // gwt_wp_content_nav.
 
 if ( ! function_exists( 'gwt_wp_comment' ) ) :
 	/**
 	 * Template for comments and pingbacks.
 	 *
 	 * Used as a callback by wp_list_comments() for displaying the comments.
+	 *
+	 * @param type $comment comment.
+	 * @param type $args args.
+	 * @param type $depth comment depth.
 	 */
 	function gwt_wp_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 
-		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) :
+		if ( 'pingback' === $comment->comment_type || 'trackback' === $comment->comment_type ) :
 			?>
 
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 		<div class="comment-body">
-				<?php _e( 'Pingback:', 'gwt_wp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'gwt_wp' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php esc_html_e( 'Pingback:', 'gwt_wp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'gwt_wp' ), '<span class="edit-link">', '</span>' ); ?>
 		</div>
 
 		<?php else : ?>
@@ -82,7 +88,7 @@ if ( ! function_exists( 'gwt_wp_comment' ) ) :
 			<footer class="comment-meta">
 				<div class="comment-author">
 					<?php
-					if ( 0 != $args['avatar_size'] ) {
+					if ( 0 !== $args['avatar_size'] ) {
 						echo get_avatar( $comment, $args['avatar_size'] );}
 					?>
 					<?php printf( __( '%s <span class="says">says:</span>', 'gwt_wp' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
@@ -98,7 +104,7 @@ if ( ! function_exists( 'gwt_wp_comment' ) ) :
 				</div><!-- .comment-metadata -->
 
 				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'gwt_wp' ); ?></p>
+				<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'gwt_wp' ); ?></p>
 				<?php endif; ?>
 			</footer><!-- .comment-meta -->
 
@@ -125,7 +131,7 @@ if ( ! function_exists( 'gwt_wp_comment' ) ) :
 			<?php
 		endif;
 	}
-endif; // ends check for gwt_wp_comment()
+endif; // ends check for gwt_wp_comment().
 
 if ( ! function_exists( 'gwt_wp_the_attached_image' ) ) :
 	/**
@@ -167,10 +173,8 @@ if ( ! function_exists( 'gwt_wp_the_attached_image' ) ) :
 			// get the URL of the next image attachment...
 			if ( $next_id ) {
 				$next_attachment_url = get_attachment_link( $next_id );
-			}
-
-			// or get the URL of the first image attachment.
-			else {
+			} else {
+				// or get the URL of the first image attachment.
 				$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
 			}
 		}

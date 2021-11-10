@@ -1,7 +1,10 @@
 <?php
 /**
  * Set the content width based on the theme's design and stylesheet.
+ *
+ * @package GWT
  */
+
 if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
@@ -33,7 +36,7 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		// add_theme_support( 'title-tag' );
+		// Commented out `add_theme_support( 'title-tag' );`.
 
 		/*
 		 * Enable support for custom logo.
@@ -54,7 +57,7 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
-		// set_post_thumbnail_size( 1200, 9999 );
+		// Commented out `set_post_thumbnail_size( 1200, 9999 );`.
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -75,46 +78,76 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		 * Enable support for Post Formats.
 		 *
 		 * See: https://codex.wordpress.org/Post_Formats
+		 *
+		 *
+		 * add_theme_support( 'post-formats', array(
+		 * 	'aside',
+		 * 	'image',
+		 * 	'video',
+		 * 	'quote',
+		 * 	'link',
+		 * 	'gallery',
+		 * 	'status',
+		 * 	'audio',
+		 * 	'chat',
+		 * ) );
 		 */
-		/*
-		add_theme_support( 'post-formats', array(
-			'aside',
-			'image',
-			'video',
-			'quote',
-			'link',
-			'gallery',
-			'status',
-			'audio',
-			'chat',
-		) );
-		*/
 
 		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		// make clickable content
+		// make clickable content.
 		apply_filters( 'the_content', 'make_clickable' );
 
-		// changes
-		// add_theme_support('custom-background', $args );
+		// changes.
+		// Commented out: `add_theme_support('custom-background', $args );`.
 		add_editor_style();
 
+		/**
+		 * Off_Canvass_Menu
+		 */
 		class Off_Canvass_Menu extends Walker_Nav_Menu {
 
-			function start_lvl( &$output, $depth = 0, $args = array() ) {
+			/**
+			 * Method start_lvl.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function start_lvl( &$output, $depth = 0, $args = array() ) {
 				$indent  = str_repeat( "\t", $depth );
 				$output .= "\n\t\t\t\t\t" . $indent . "<ul class=\"vertical menu\">\n";
 			}
 
-			function end_lvl( &$output, $depth = 0, $args = array() ) {
+			/**
+			 * Method end_lvl.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function end_lvl( &$output, $depth = 0, $args = array() ) {
 				$indent  = str_repeat( "\t", $depth );
 				$output .= "\n\t\t\t\t\t" . $indent . "</ul>\n";
 			}
 
-			function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+			/**
+			 * Method start_el.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $item item.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @param  mixed $id id.
+			 * @return void
+			 */
+			public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 				$indent      = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-				$class_names = $value = '';
+				$class_names = '';
+				$value       = '';
 				$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 
 				$classes[]   = 'menu-item-' . $item->ID;
@@ -140,42 +173,81 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
 
-			function end_el( &$output, $item, $depth = 0, $args = array() ) {
+			/**
+			 * Method end_el.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $item item.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 				$indent  = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 				$output .= $indent . "\t\t\t\t\t</li>\n";
 			}
 
 		}
 
+		/**
+		 * Topbar_Nav_Menu
+		 */
 		class Topbar_Nav_Menu extends Walker_Nav_Menu {
 
-			function start_lvl( &$output, $depth = 0, $args = array() ) {
+			/**
+			 * Method start_lvl
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function start_lvl( &$output, $depth = 0, $args = array() ) {
 				$indent  = str_repeat( "\t", $depth );
 				$output .= "\n$indent<ul class=\"dropdown vertical menu\">\n";
 			}
 
-			function end_lvl( &$output, $depth = 0, $args = array() ) {
+			/**
+			 * Method end_lvl.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function end_lvl( &$output, $depth = 0, $args = array() ) {
 				$indent  = str_repeat( "\t", $depth );
 				$output .= "$indent</ul>\n";
 			}
 
-			function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+			/**
+			 * Method start_el.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $item item.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @param  mixed $id id.
+			 * @return void
+			 */
+			public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 				$indent      = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-				$class_names = $value = '';
+				$class_names = '';
+				$value       = '';
 				$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 
 				$classes[]   = 'menu-item-' . $item->ID;
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 				$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
-				//added for mega menu
+				// Added for mega menu.
 				$mega_menu_id = apply_filters( 'the_title', $item->title, $item->ID );
 				$mega_menu_id = strtolower( $mega_menu_id );
 				$mega_menu_id = str_replace( ' ', '_', $mega_menu_id );
 
 				$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 				$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-				$id = strpos( $class_names, 'has-megamenu' ) ? ' id="' . $mega_menu_id . '-menu"' : $id; //added for mega menu
+				$id = strpos( $class_names, 'has-megamenu' ) ? ' id="' . $mega_menu_id . '-menu"' : $id; // Added for mega menu.
 
 				$output .= $indent . '<li' . $id . $value . $class_names . '>';
 
@@ -193,11 +265,31 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
 
-			function end_el( &$output, $item, $depth = 0, $args = array() ) {
+			/**
+			 * Method end_el.
+			 *
+			 * @param  mixed $output output.
+			 * @param  mixed $item item.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @return void
+			 */
+			public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 				$output .= "</li>\n";
 			}
 
-			function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+			/**
+			 * Method display_element
+			 *
+			 * @param  mixed $element element.
+			 * @param  mixed $children_elements children_elements.
+			 * @param  mixed $max_depth max_depth.
+			 * @param  mixed $depth depth.
+			 * @param  mixed $args args.
+			 * @param  mixed $output output.
+			 * @return void
+			 */
+			public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 				$id_field = $this->db_fields['id'];
 				if ( ! empty( $children_elements[ $element->$id_field ] ) ) {
 					$element->classes[] = 'has-dropdown';
@@ -207,5 +299,5 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		}
 
 	}
-endif; // gwt_wp_setup
+endif; // End gwt_wp_setup.
 add_action( 'after_setup_theme', 'gwt_wp_setup' );

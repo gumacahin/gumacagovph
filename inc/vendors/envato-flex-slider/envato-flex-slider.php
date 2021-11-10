@@ -1,12 +1,14 @@
 <?php
-/*
-Plugin Name: Envato FlexSlider
-Plugin URI:
-Description: A simple plugin that integrates FlexSlider (http://flex.madebymufffin.com/) with WordPress using custom post types!
-Author: Joe Casabona
-Version: 0.5
-Author URI: http://www.casabona.org
-*/
+/**
+ * Plugin Name: Envato FlexSlider
+ * Plugin URI:
+ * Description: A simple plugin that integrates FlexSlider (http://flex.madebymufffin.com/) with WordPress using custom post types!
+ * Author: Joe Casabona
+ * Version: 0.5
+ * Author URI: http://www.casabona.org
+ *
+ * @package Evanto FlexSlider
+ */
 
 /*Some Set-up*/
 define( 'EFS_PATH', get_template_directory_uri() . '/inc/vendors/' . basename( dirname( __FILE__ ) ) . '/' );
@@ -14,8 +16,13 @@ define( 'EFS_NAME', 'Envato FlexSlider' );
 define( 'EFS_VERSION', '0.5' );
 
 /*Files to Include*/
-require_once( 'slider-img-type.php' );
+require_once 'slider-img-type.php';
 
+/**
+ * Get the sliders.
+ *
+ * @return string
+ */
 function efs_get_slider() {
 	$efs_query = 'post_type=slider-image';
 	query_posts( $efs_query );
@@ -60,7 +67,7 @@ function efs_get_slider() {
 		<nav class="orbit-bullets">';
 
 		for ( $x = 0; $x < $count; $x++ ) {
-			$class   = ( $x == 0 ) ? 'is-active' : '';
+			$class   = ( 0 === $x ) ? 'is-active' : '';
 			$slider .= '<button class="' . $class . '" data-slide="' . $x . '"><span class="show-for-sr">Current Slide</span></button>';
 		}
 
@@ -72,16 +79,26 @@ function efs_get_slider() {
 	return $slider;
 }
 
-/**add the shortcode for the slider- for use in editor**/
+/**
+ * Insert sliders.
+ *
+ * @param  mixed $atts attribute.
+ * @param  mixed $content content.
+ * @return string the slider.
+ */
 function efs_insert_slider( $atts, $content = null ) {
 	$slider = efs_get_slider();
 	return $slider;
 }
 add_shortcode( 'ef_slider', 'efs_insert_slider' );
 
-/**add template tag- for use in themes**/
+/**
+ * Add template tag- for use in themes.
+ *
+ * @return void
+ */
 function efs_slider() {
-	print efs_get_slider();
+	print esc_html( efs_get_slider() );
 }
 
 

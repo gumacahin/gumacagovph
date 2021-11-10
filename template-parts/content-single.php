@@ -5,10 +5,11 @@
  * @package GWT
  * @since Government Website Template 2.0
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
+
 	<!-- entry-content -->
 	<div class="entry-content">
 		<div class="entry-meta">
@@ -25,5 +26,5 @@
 			);
 			?>
 	</div>
-	
+
 </article>

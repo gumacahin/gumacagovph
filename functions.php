@@ -1,6 +1,6 @@
 <?php
 /**
- * gwt_wp functions and definitions
+ * GWT wp functions and definitions
  *
  * @package gwt_wp
  */

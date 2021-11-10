@@ -1,12 +1,17 @@
 <?php
 /**
+ * Sidebars.
+ *
+ * @package GWT
+ */
+
+/**
  * Insert default widgets
  * on left sidebar
  *
  * @package GWT
  * @since Government Website Template 2.0
  */
-
 function govph_default_widget() {
 
 	$templatedir        = get_template_directory_uri();

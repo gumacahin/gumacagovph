@@ -5,7 +5,7 @@
  * Displays all of the head element and everything up until the "main" div.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 ?>
@@ -20,15 +20,15 @@
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
-	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+	<link rel="icon" href="<?php echo esc_attr( get_template_directory_uri() ); ?>/favicon.ico">
 	<?php wp_head(); ?>
 
-	<style <?php the_tags(); ?>>
+	<style>
 		.container-main a, .container-main a:active, .container-main a:visited, 
 		.anchor a, .anchor a:active, .anchor a:visited {
 			<?php govph_displayoptions( 'govph_anchorcolor' ); ?>
 		}
-		
+
 		.container-main a:focus, .container-main a:hover, 
 		.anchor a:focus, .anchor a:hover {
 			<?php govph_displayoptions( 'govph_anchorcolor_hover' ); ?>
@@ -68,7 +68,7 @@
 		}
 	</style>
 	<script type="text/javascript" language="javascript">
-		var template_directory = '<?php echo get_template_directory_uri(); ?>';
+		var template_directory = '<?php echo esc_js( get_template_directory_uri() ); ?>';
 	</script>
 </head>
 
@@ -77,26 +77,48 @@
 <div id="accessibility-shortcuts">
 	<ul>
 		<li><a href="#" class="skips toggle-statement" title="Toggle Accessibility Statement" accesskey="0" data-toggle="a11y-modal">Toggle Accessibility Statement</a></li>
-		<?php if ( $govph_acc_link_home = govph_displayoptions( 'govph_acc_link_home' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_home; ?>" accesskey="h">Home</a></li>
+		<?php
+		$govph_acc_link_home = govph_displayoptions( 'govph_acc_link_home' );
+		if ( $govph_acc_link_home ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_home ); ?>" accesskey="h">Home</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_contact = govph_displayoptions( 'govph_acc_link_contact' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_contact; ?>" accesskey="c">Contacts</a></li>
+		<?php
+		$govph_acc_link_contact = govph_displayoptions( 'govph_acc_link_contact' );
+		if ( $govph_acc_link_contact ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_contact ); ?>" accesskey="c">Contacts</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_feedback = govph_displayoptions( 'govph_acc_link_feedback' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_feedback; ?>" accesskey="k">Feedback</a></li>
+		<?php
+		$govph_acc_link_feedback = govph_displayoptions( 'govph_acc_link_feedback' );
+		if ( $govph_acc_link_feedback ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_feedback ); ?>" accesskey="k">Feedback</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_faq = govph_displayoptions( 'govph_acc_link_faq' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_faq; ?>" accesskey="q">FAQ</a></li>
+
+		<?php
+		$govph_acc_link_faq = govph_displayoptions( 'govph_acc_link_faq' );
+		if ( $govph_acc_link_faq ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_faq ); ?>" accesskey="q">FAQ</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_search = govph_displayoptions( 'govph_acc_link_search' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_search; ?>" accesskey="s">Search</a></li>
+		<?php
+		$govph_acc_link_search = govph_displayoptions( 'govph_acc_link_search' );
+		if ( $govph_acc_link_search ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_search ); ?>" accesskey="s">Search</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_main_content = govph_displayoptions( 'govph_acc_link_main_content' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_main_content; ?>" accesskey="R">Skip to Main Content</a></li>
+		<?php
+		$govph_acc_link_main_content = govph_displayoptions( 'govph_acc_link_main_content' );
+		if ( $govph_acc_link_main_content ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_main_content ); ?>" accesskey="R">Skip to Main Content</a></li>
 		<?php endif; ?>
-		<?php if ( $govph_acc_link_sitemap = govph_displayoptions( 'govph_acc_link_sitemap' ) ) : ?>
-		<li><a href="<?php echo $govph_acc_link_sitemap; ?>" accesskey="M">Sitemap</a></li>
+		<?php
+		$govph_acc_link_sitemap = govph_displayoptions( 'govph_acc_link_sitemap' );
+		if ( $govph_acc_link_sitemap ) :
+			?>
+		<li><a href="<?php echo esc_attr( $govph_acc_link_sitemap ); ?>" accesskey="M">Sitemap</a></li>
 		<?php endif; ?>
 	</ul>
 </div>
@@ -161,7 +183,7 @@ Press esc, or click the close the button to close this dialog box.
 					)
 				);
 				?>
-				 
+
 				<?php
 				wp_nav_menu(
 					array(
@@ -173,7 +195,6 @@ Press esc, or click the close the button to close this dialog box.
 					)
 				);
 				?>
-				<?php // if(has_nav_menu('aux_nav')): ?>
 				<li id="aux-offmenu" class="list-item">AUXILIARY MENU</li>
 				<?php
 				wp_nav_menu(
@@ -186,7 +207,6 @@ Press esc, or click the close the button to close this dialog box.
 					)
 				);
 				?>
-				<?php //endif; ?>
 			</ul>
 		</nav>
 
@@ -232,7 +252,7 @@ Press esc, or click the close the button to close this dialog box.
 									<span class="show-for-sr">Accessibility Button</span>
 									<i class="fa fa-universal-access fa-2x" aria-hidden="true"></i>
 								</button>
-								
+
 								<ul class="menu" style="min-width:inherit;">
 									<li>
 										<a href="#" id="accessibility-statement" title="Accessibility Statement" class="toggle-statement" data-toggle="a11y-modal">
@@ -288,21 +308,21 @@ Press esc, or click the close the button to close this dialog box.
 			<!-- masthead -->
 			<header class="container-masthead">
 				<div class="row">
-					<div class="<?php echo $name_slogan_class; ?> columns">
+					<div class="<?php echo esc_attr( $name_slogan_class ); ?> columns">
 						<h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php govph_displayoptions( 'govph_logo' ); ?></a></h1>
 					</div>
 
 					<?php if ( is_active_sidebar( 'ear-content-1' ) ) : ?>
-						<div class="<?php echo $ear_content_class; ?> columns">
-							<?php do_action( 'before_sidebar' ); ?>
-							<?php dynamic_sidebar( 'ear-content-1' ); ?>
+						<div class="<?php echo esc_attr( $ear_content_class ); ?> columns">
+						<?php do_action( 'before_sidebar' ); ?>
+						<?php dynamic_sidebar( 'ear-content-1' ); ?>
 						</div>
 					<?php endif; ?>
 
 					<?php if ( is_active_sidebar( 'ear-content-2' ) ) : ?>
-						<div class="<?php echo $ear_content_2_class; ?> columns">
-							<?php do_action( 'before_sidebar' ); ?>
-							<?php dynamic_sidebar( 'ear-content-2' ); ?>
+						<div class="<?php echo esc_attr( $ear_content_2_class ); ?> columns">
+						<?php do_action( 'before_sidebar' ); ?>
+						<?php dynamic_sidebar( 'ear-content-2' ); ?>
 						</div>
 					<?php endif; ?>
 				</div>

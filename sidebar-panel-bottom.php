@@ -4,6 +4,7 @@
  *
  * @package gwt_wp
  */
+
 ?>
 
 <?php if ( is_active_sidebar( 'panel-bottom-1' ) || is_active_sidebar( 'panel-bottom-2' ) || is_active_sidebar( 'panel-bottom-3' ) || is_active_sidebar( 'panel-bottom-4' ) ) : ?>

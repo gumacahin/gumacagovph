@@ -7,6 +7,11 @@
  * @since Government Website Template 2.0
  */
 
+/**
+ * GWT wp widgets init.
+ *
+ * @return void
+ */
 function gwt_wp_widgets_init() {
 	register_nav_menus(
 		array(

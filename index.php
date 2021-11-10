@@ -12,7 +12,7 @@
  */
 
 get_header();
-include_once( 'inc/banner.php' );
+require_once 'inc/banner.php';
 ?>
 		<?php govph_displayoptions( 'govph_panel_top' ); ?>
 
@@ -25,6 +25,7 @@ include_once( 'inc/banner.php' );
 						// Start the loop.
 						while ( have_posts() ) :
 							the_post();
+
 							/*
 							* Include the Post-Format-specific template for the content.
 							* If you want to override this in a child theme, then include a file
@@ -51,7 +52,7 @@ include_once( 'inc/banner.php' );
 					govph_displayoptions( 'govph_sidebar_right' );
 				}
 				?>
-				
+
 			</div>
 		</div>
 

@@ -645,3 +645,11 @@ h1.logo img { font-size: 1rem; }
  * >= 1921px
  */
 @media only screen and (min-width: 120.063em) { }
+
+/**
+ * Fixes sticky posts position.
+ */
+.post-box .sticky {
+	position: static;
+}
+
