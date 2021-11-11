@@ -5,6 +5,7 @@
  * @package GWT
  */
 
+
 /**
  * Get breadcrumb.
  *
@@ -17,6 +18,7 @@ function gwt_wp_breadcrumb() {
 	if ( ! isset( $option['govph_breadcrumbs_enable'] ) || 'true' !== $option['govph_breadcrumbs_enable'] ) {
 		return false;
 	}
+
 	$separator       = $option['govph_breadcrumbs_separator'] ? $option['govph_breadcrumbs_separator'] : ' / ';
 	$separator_block = '<span class="separator">' . $separator . '</span>';
 
@@ -42,7 +44,7 @@ function gwt_wp_breadcrumb() {
 			echo 'Home';
 			echo '</a>' . $separator_block . '</li>';
 		}
-	}
+	}//end if
 
 	if ( is_category() || is_single() ) {
 		echo '<li>';
@@ -56,6 +58,7 @@ function gwt_wp_breadcrumb() {
 			the_title();
 			echo '</li>';
 		}
+
 		echo '</li>';
 	} elseif ( is_page() ) {
 		if ( $post->post_parent ) {
@@ -64,32 +67,41 @@ function gwt_wp_breadcrumb() {
 			foreach ( $anc as $ancestor ) {
 				$output = '<li><a class="pathway" href="' . get_permalink( $ancestor ) . '" title="' . get_the_title( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a>' . $separator_block . '</li>';
 			}
+
 			echo $output;
 			echo '<li><span class="current show-for-sr">Current: </span>' . esc_html( get_the_title() ) . '</li>';
 		} else {
 			echo '<li><span class="current show-for-sr">Current: </span>' . esc_html( get_the_title() ) . '</li>';
 		}
-	}
+	}//end if
 
 	if ( is_archive() ) {
 		if ( is_day() ) {
 			echo '<li>';
 			the_time( 'F jS, Y' );
-			echo '</li>';} elseif ( is_month() ) {
-			echo '<li>';
-			the_time( 'F Y' );
-			echo '</li>';} elseif ( is_year() ) {
-				echo '<li>';
-				the_time( 'Y' );
-				echo '</li>';} elseif ( is_author() ) {
-				echo '<li>Author Archive';
-				echo '</li>';} elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) {
-					echo '<li>Blog Archives';
-					echo '</li>';} elseif ( is_search() ) {
-					echo '<li>Search Results';
-					echo '</li>';}
-	}
+			echo '</li>';
+		} elseif ( is_month() ) {
+				 echo '<li>';
+				 the_time( 'F Y' );
+				 echo '</li>';
+		} elseif ( is_year() ) {
+				  echo '<li>';
+				  the_time( 'Y' );
+				  echo '</li>';
+		} elseif ( is_author() ) {
+			   echo '<li>Author Archive';
+			   echo '</li>';
+		} elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) {
+				   echo '<li>Blog Archives';
+				   echo '</li>';
+		} elseif ( is_search() ) {
+				   echo '<li>Search Results';
+				   echo '</li>';
+		}//end if
+	}//end if
+
 	echo '</ul>';
 
 	return true;
-}
+
+}//end gwt_wp_breadcrumb()

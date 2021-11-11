@@ -4,7 +4,7 @@
  * This theme uses wp_nav_menu() in one location.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 /**

@@ -31,17 +31,17 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
 		// Commented out `add_theme_support( 'title-tag' );`.
 
 		/*
-		 * Enable support for custom logo.
-		 *
-		 */
+		* Enable support for custom logo.
+		*
+		*/
 		add_theme_support(
 			'custom-logo',
 			array(
@@ -52,17 +52,17 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		);
 
 		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-		 */
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+		*/
 		add_theme_support( 'post-thumbnails' );
 		// Commented out `set_post_thumbnail_size( 1200, 9999 );`.
 
 		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
 		add_theme_support(
 			'html5',
 			array(
@@ -75,23 +75,23 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 		);
 
 		/*
-		 * Enable support for Post Formats.
-		 *
-		 * See: https://codex.wordpress.org/Post_Formats
-		 *
-		 *
-		 * add_theme_support( 'post-formats', array(
-		 * 	'aside',
-		 * 	'image',
-		 * 	'video',
-		 * 	'quote',
-		 * 	'link',
-		 * 	'gallery',
-		 * 	'status',
-		 * 	'audio',
-		 * 	'chat',
-		 * ) );
-		 */
+		* Enable support for Post Formats.
+		*
+		* See: https://codex.wordpress.org/Post_Formats
+		*
+		*
+		* add_theme_support( 'post-formats', array(
+		*     'aside',
+		*     'image',
+		*     'video',
+		*     'quote',
+		*     'link',
+		*     'gallery',
+		*     'status',
+		*     'audio',
+		*     'chat',
+		* ) );
+		*/
 
 		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -112,8 +112,8 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method start_lvl.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function start_lvl( &$output, $depth = 0, $args = array() ) {
@@ -125,8 +125,8 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method end_lvl.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -138,10 +138,10 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method start_el.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $item item.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
-			 * @param  mixed $id id.
+			 * @param  mixed $item   item.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
+			 * @param  mixed $id     id.
 			 * @return void
 			 */
 			public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -177,9 +177,9 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method end_el.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $item item.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $item   item.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function end_el( &$output, $item, $depth = 0, $args = array() ) {
@@ -198,8 +198,8 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method start_lvl
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function start_lvl( &$output, $depth = 0, $args = array() ) {
@@ -211,8 +211,8 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method end_lvl.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -224,10 +224,10 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method start_el.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $item item.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
-			 * @param  mixed $id id.
+			 * @param  mixed $item   item.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
+			 * @param  mixed $id     id.
 			 * @return void
 			 */
 			public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -269,9 +269,9 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			 * Method end_el.
 			 *
 			 * @param  mixed $output output.
-			 * @param  mixed $item item.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
+			 * @param  mixed $item   item.
+			 * @param  mixed $depth  depth.
+			 * @param  mixed $args   args.
 			 * @return void
 			 */
 			public function end_el( &$output, $item, $depth = 0, $args = array() ) {
@@ -281,12 +281,12 @@ if ( ! function_exists( 'gwt_wp_setup' ) ) :
 			/**
 			 * Method display_element
 			 *
-			 * @param  mixed $element element.
+			 * @param  mixed $element           element.
 			 * @param  mixed $children_elements children_elements.
-			 * @param  mixed $max_depth max_depth.
-			 * @param  mixed $depth depth.
-			 * @param  mixed $args args.
-			 * @param  mixed $output output.
+			 * @param  mixed $max_depth         max_depth.
+			 * @param  mixed $depth             depth.
+			 * @param  mixed $args              args.
+			 * @param  mixed $output            output.
 			 * @return void
 			 */
 			public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {

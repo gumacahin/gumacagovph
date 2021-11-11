@@ -12,6 +12,7 @@ define( 'CPT_THUMB_SIZE', 500 );
 
 add_theme_support( 'post-thumbnails', array( 'slider-image' ) );
 
+
 /**
  * Registrer slider-image custom post type.
  *
@@ -19,28 +20,43 @@ add_theme_support( 'post-thumbnails', array( 'slider-image' ) );
  */
 function efs_register() {
 	$args = array(
-		'label'               => __( CPT_NAME ), // FIXME: Linter is compaining about this situation. Are we supposed to do this?
-		'singular_label'      => __( CPT_SINGLE ),
+		'label'               => __( CPT_NAME ),
+		// FIXME: Linter is compaining about this situation. Are we supposed to do this?
+			'singular_label'  => __( CPT_SINGLE ),
 		'public'              => true,
 		'show_ui'             => true,
 		'capability_type'     => 'post',
 		'hierarchical'        => false,
 		'rewrite'             => true,
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
-		'public'              => false,  // it's not public, it shouldn't have it's own permalink, and so on.
-		'publicly_queryable'  => true,  // you should be able to query it.
-		'show_ui'             => true,  // you should be able to edit it in wp-admin.
-		'exclude_from_search' => true,  // you should exclude it from search results.
-		'show_in_nav_menus'   => false,  // you shouldn't be able to add it to menus.
-		'has_archive'         => false,  // it shouldn't have archive page.
-		'rewrite'             => false,  // it shouldn't have rewrite rules.
+		'supports'            => array(
+			'title',
+			'editor',
+			'thumbnail',
+		),
+		'public'              => false,
+		// it's not public, it shouldn't have it's own permalink, and so on.
+		'publicly_queryable'  => true,
+		// you should be able to query it.
+		'show_ui'             => true,
+		// you should be able to edit it in wp-admin.
+		'exclude_from_search' => true,
+		// you should exclude it from search results.
+		'show_in_nav_menus'   => false,
+		// you shouldn't be able to add it to menus.
+		'has_archive'         => false,
+		// it shouldn't have archive page.
+		'rewrite'             => false,
+		// it shouldn't have rewrite rules.
 	);
 
 	register_post_type( CPT_TYPE, $args );
 	set_post_thumbnail_size( CPT_THUMB_SIZE );
-}
+
+}//end efs_register()
+
 
 add_action( 'init', 'efs_register' );
+
 
 /**
  * Disables editor for this custom post type.
@@ -48,20 +64,28 @@ add_action( 'init', 'efs_register' );
  * @return void
  */
 function efs_disable_editor() {
-	remove_post_type_support( CPT_TYPE, 'editor' );
-}
+	 remove_post_type_support( CPT_TYPE, 'editor' );
+
+}//end efs_disable_editor()
+
+
 add_action( 'init', 'efs_disable_editor' );
+
 
 /**
  * Add meta box
  *
  * @param post $post The post object.
- * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
+ * @link  https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
  */
 function slider_link_add_meta_boxes( $post ) {
 	add_meta_box( 'slider_link_meta_box', __( 'Slider Link', 'efs_slider' ), 'slider_link_build_meta_box', CPT_TYPE, 'normal', 'low' );
-}
+
+}//end slider_link_add_meta_boxes()
+
+
 add_action( 'add_meta_boxes_slider-image', 'slider_link_add_meta_boxes' );
+
 
 /**
  * Build custom field meta box
@@ -82,23 +106,27 @@ function slider_link_build_meta_box( $post ) {
 		</div>
 	</div>
 	<?php
-}
+
+}//end slider_link_build_meta_box()
+
 
 /**
  * Store custom field meta box data
  *
  * @param int $post_id The post ID.
- * @link https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
+ * @link  https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
  */
 function slider_link_save_meta_box_data( $post_id ) {
 	// verify meta box nonce.
 	if ( ! isset( $_POST['slider_link_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['slider_link_meta_box_nonce'], basename( __FILE__ ) ) ) {
 		return;
 	}
+
 	// return if autosave.
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
+
 	// Check the user's permissions.
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
@@ -107,8 +135,12 @@ function slider_link_save_meta_box_data( $post_id ) {
 	if ( isset( $_REQUEST['slider_link'] ) ) {
 		update_post_meta( $post_id, '_slider_link', sanitize_text_field( $_POST['slider_link'] ) );
 	}
-}
+
+}//end slider_link_save_meta_box_data()
+
+
 add_action( 'save_post_slider-image', 'slider_link_save_meta_box_data' );
+
 
 /**
  * Gets a link to a slider.
@@ -126,9 +158,13 @@ function slider_link_get_meta_box_data( $post_id ) {
 	if ( substr( $slider_link, 0, 7 ) === 'http://' || substr( $slider_link, 0, 8 ) === 'https://' ) {
 		return $slider_link;
 	}
+
 	if ( substr( $slider_link, 0, 1 ) !== '/' ) {
 		$slider_link = '/' . $slider_link;
 	}
+
 	return get_site_url() . $slider_link;
-}
+
+}//end slider_link_get_meta_box_data()
+
 

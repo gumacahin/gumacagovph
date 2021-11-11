@@ -3,13 +3,14 @@
  * Default widgets for gwt_wp.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 /**
  * Class govph_widget_pst.
  */
 class govph_widget_pst extends WP_Widget {
+
 
 	/**
 	 * __construct
@@ -28,7 +29,7 @@ class govph_widget_pst extends WP_Widget {
 	/**
 	 * Render widget.
 	 *
-	 * @param  mixed $args arguments.
+	 * @param  mixed $args     arguments.
 	 * @param  mixed $instance instance.
 	 * @return void
 	 */
@@ -61,6 +62,7 @@ add_action( 'widgets_init', 'pst_register_widgets' );
  */
 class govph_widget_transparency extends WP_Widget {
 
+
 	/**
 	 * __construct
 	 *
@@ -78,7 +80,7 @@ class govph_widget_transparency extends WP_Widget {
 	/**
 	 * Output widget.
 	 *
-	 * @param  mixed $args widget args.
+	 * @param  mixed $args     widget args.
 	 * @param  mixed $instance widget instance.
 	 * @return void
 	 */

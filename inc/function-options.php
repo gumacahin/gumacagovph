@@ -3,13 +3,14 @@
  * The template for displaying the theme options page.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 /**
  * GOVPH
  */
 class GOVPH {
+
 	/**
 	 * Options.
 	 *
@@ -292,7 +293,8 @@ class GOVPH {
 	 *
 	 * @return void
 	 */
-	public function govph_main_section_cb() { }
+	public function govph_main_section_cb() {
+	}
 
 	/*
 	* Inputs
@@ -970,7 +972,7 @@ class GOVPH {
  * @return void
  */
 function govph_options_menu() {
-	GOVPH::add_menu_page();
+	 GOVPH::add_menu_page();
 }
 add_action( 'admin_menu', 'govph_options_menu' );
 
@@ -980,7 +982,7 @@ add_action( 'admin_menu', 'govph_options_menu' );
  * @return void
  */
 function govph_options_init() {
-	new GOVPH();
+	 new GOVPH();
 }
 add_action( 'admin_init', 'govph_options_init' );
 
@@ -991,7 +993,7 @@ add_action( 'admin_init', 'govph_options_init' );
  * @return void
  */
 function gwt_enqueue_color_picker( $hook_suffix ) {
-	// First check that $hook_suffix is appropriate for your admin page.
+	 // First check that $hook_suffix is appropriate for your admin page.
 	wp_enqueue_media();
 	wp_enqueue_style( 'wp-color-picker' );
 	// FIXME: add appropriate ver.
@@ -1009,7 +1011,7 @@ if ( is_admin() ) {
  * @return array display options.
  */
 function govph_displayoptions( $options ) {
-	$option = get_option( 'govph_options' );
+	 $option = get_option( 'govph_options' );
 
 	switch ( $options ) {
 		case 'govph_logo_enable':

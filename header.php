@@ -288,9 +288,9 @@ Press esc, or click the close the button to close this dialog box.
 		<!-- original content goes in this container -->
 		<div class="off-canvas-content" data-off-canvas-content>
 			<?php
-			$name_slogan_class     = 'small-12 small-order-1 ';
-			$ear_content_1_class   = 'small-12 small-order-2 ';
-			$ear_content_2_class   = 'small-12 small-order-3 ';
+			$name_slogan_class   = 'small-12 small-order-1 ';
+			$ear_content_1_class = 'small-12 small-order-2 ';
+			$ear_content_2_class = 'small-12 small-order-3 ';
 
 			$ear_content_1_active = is_active_sidebar( 'ear-content-1' );
 			$ear_content_2_active = is_active_sidebar( 'ear-content-2' );

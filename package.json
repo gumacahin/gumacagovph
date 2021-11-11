@@ -1,16 +1,33 @@
 {
   "name": "foundation-zurb-template",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Official Template for Foundation for Sites.",
   "main": "gulpfile.babel.js",
+	"author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production"
   },
-  "author": "Foundation Yetinauts <contact@get.foundation> (https://get.foundation)",
-  "license": "MIT",
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
   "dependencies": {
-    "foundation-sites": "latest",
+    "foundation-sites": "^6.7.4",
     "jquery": "^3.6.0",
     "motion-ui": "latest",
     "what-input": "^5.2.10"
@@ -19,9 +36,11 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@babel/register": "^7.15.3",
+    "@wordpress/scripts": "^12.1.0",
     "autoprefixer": "^10.3.4",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.27.5",
+    "dir-archiver": "^1.1.1",
     "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -43,6 +62,7 @@
     "postcss": "^8.3.11",
     "postcss-uncss": "^0.17.0",
     "rimraf": "^3.0.2",
+    "rtlcss": "^2.5.0",
     "style-sherpa": "^1.0.2",
     "uncss": "^0.17.3",
     "vinyl-named": "^1.1.0",
@@ -52,11 +72,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zurb/foundation-zurb-template.git"
+    "url": "https://github.com/gumacahin/gumacagwt"
   },
   "bugs": {
-    "url": "https://github.com/zurb/foundation-sites/issues",
-    "email": "foundation@zurb.com"
+    "url": "https://github.com/gumacahin/gumacagwt/issues",
+    "email": "mvalviar@gmail.com"
   },
   "private": true,
   "browserslist": [

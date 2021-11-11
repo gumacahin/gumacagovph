@@ -7,7 +7,7 @@
  * relies on many newer functions and markup changes introduced in 4.4.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 /**
@@ -37,7 +37,7 @@ add_action( 'after_switch_theme', 'gwt_switch_theme' );
  * @global string $wp_version WordPress version.
  */
 function gwt_upgrade_notice() {
-	// translators: this is for version numbers.
+	 // translators: this is for version numbers.
 	$message = sprintf( __( 'GWT requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'gwt' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', esc_html( $message ) );
 }
@@ -51,7 +51,7 @@ function gwt_upgrade_notice() {
  */
 function gwt_customize() {
 	wp_die(
-		// translators: version number.
+	// translators: version number.
 		sprintf( __( 'GWT requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'gwt' ), $GLOBALS['wp_version'] ),
 		'',
 		array(

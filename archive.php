@@ -12,7 +12,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 get_header();
@@ -31,12 +31,12 @@ require_once 'inc/banner.php';
 						?>
 
 						<?php
-							/*
-							 * Include the Post-Format-specific template for the content.
-							 * If you want to overload this in a child theme then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'template-parts/content', get_post_format() );
+						/*
+						* Include the Post-Format-specific template for the content.
+						* If you want to overload this in a child theme then include a file
+						* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						*/
+						get_template_part( 'template-parts/content', get_post_format() );
 						?>
 
 					<?php endwhile; ?>

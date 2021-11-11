@@ -10,13 +10,14 @@
  * @package Evanto FlexSlider
  */
 
-/*Some Set-up*/
+// Some Set-up
 define( 'EFS_PATH', get_template_directory_uri() . '/inc/vendors/' . basename( dirname( __FILE__ ) ) . '/' );
 define( 'EFS_NAME', 'Envato FlexSlider' );
 define( 'EFS_VERSION', '0.5' );
 
-/*Files to Include*/
+// Files to Include
 require_once 'slider-img-type.php';
+
 
 /**
  * Get the sliders.
@@ -24,13 +25,12 @@ require_once 'slider-img-type.php';
  * @return string
  */
 function efs_get_slider() {
-	$efs_query = 'post_type=slider-image';
+	 $efs_query = 'post_type=slider-image';
 	query_posts( $efs_query );
 
 	global $post_id;
 
 	if ( have_posts() ) :
-
 		$slider = '<div class="orbit" role="region" aria-label="Banner Slider" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out">
 					<ul class="orbit-container">';
 
@@ -51,6 +51,7 @@ function efs_get_slider() {
 			if ( $x > $count ) {
 				$x = 1;
 			}
+
 			$slider .= $post_id . '<li class="orbit-slide is-active"><div class="orbit-slide-number"><span>' . $x . '</span> of <span>' . $count . '</span></div><a href="' . $slide_link . '">' . $img . '</a><figcaption class="orbit-caption">' . $caption . '</figcaption></li>';
 			$x++;
 		endwhile;
@@ -77,20 +78,26 @@ function efs_get_slider() {
 	}
 
 	return $slider;
-}
+
+}//end efs_get_slider()
+
 
 /**
  * Insert sliders.
  *
- * @param  mixed $atts attribute.
+ * @param  mixed $atts    attribute.
  * @param  mixed $content content.
  * @return string the slider.
  */
 function efs_insert_slider( $atts, $content = null ) {
 	$slider = efs_get_slider();
 	return $slider;
-}
+
+}//end efs_insert_slider()
+
+
 add_shortcode( 'ef_slider', 'efs_insert_slider' );
+
 
 /**
  * Add template tag- for use in themes.
@@ -98,7 +105,6 @@ add_shortcode( 'ef_slider', 'efs_insert_slider' );
  * @return void
  */
 function efs_slider() {
-	print esc_html( efs_get_slider() );
-}
+	 print esc_html( efs_get_slider() );
 
-
+}//end efs_slider()

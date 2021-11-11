@@ -11,7 +11,7 @@
  * @return void
  */
 function gwt_wp_scripts() {
-	// Enqueue CSS.
+	 // Enqueue CSS.
 	wp_enqueue_style( 'gwt_wp-foundation', get_template_directory_uri() . '/foundation/css/app.css', array(), '20160530' );
 	wp_enqueue_style( 'gwt_wp-fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '20160530' );
 

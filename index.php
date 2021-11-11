@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 get_header();
@@ -41,7 +41,7 @@ require_once 'inc/banner.php';
 						endif;
 						?>
 				</div><!-- end content -->
-				   
+
 				<?php
 				if ( is_active_sidebar( 'left-sidebar' ) ) {
 					govph_displayoptions( 'govph_sidebar_left' );

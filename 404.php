@@ -3,7 +3,7 @@
  * The template for displaying 404 pages (not found)
  *
  * @package GWT
- * @since Government Website Template 2.0
+ * @since   Government Website Template 2.0
  */
 
 get_header();
@@ -27,4 +27,5 @@ get_header();
 	<div class="large-2 medium-2 columns"><p></p></div>
 </div>
 
-<?php get_footer(); ?>
+<?php
+get_footer();
