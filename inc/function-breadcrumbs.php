@@ -14,7 +14,7 @@ function gwt_wp_breadcrumb() {
 	global $post;
 	$option = get_option( 'govph_options' );
 
-	if ( 'true' !== $option['govph_breadcrumbs_enable'] ) {
+	if ( ! isset( $option['govph_breadcrumbs_enable'] ) || 'true' !== $option['govph_breadcrumbs_enable'] ) {
 		return false;
 	}
 	$separator       = $option['govph_breadcrumbs_separator'] ? $option['govph_breadcrumbs_separator'] : ' / ';

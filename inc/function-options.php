@@ -421,7 +421,7 @@ class GOVPH {
 	 * @return void
 	 */
 	public function govph_header_font_color() {
-		$header_font_color = ! empty( $this->options['govph_header_font_color'] ) ? $this->options['govph_header_font_color'] : '#000';
+		$header_font_color = ! empty( $this->options['govph_header_font_color'] ) ? $this->options['govph_header_font_color'] : '';
 		?>
 	<input name="govph_options[govph_header_font_color]" type="text" value="<?php echo esc_attr( $header_font_color ); ?>" class="my-color-field" id="color-field-header-font" data-default-color="#000" />
 		<?php

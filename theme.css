@@ -145,7 +145,8 @@ h6 {font-size: 0.63rem;}
 	/*top bar & auxiliary*/
 	#main-nav {
 		background-color: #f7f7f7;
-		position: fixed;
+		position: sticky;
+		top: 0;
 		z-index: 4;
 		width: 100%;
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
@@ -434,10 +435,6 @@ h1.logo img { font-size: 1rem; }
  * 11.1 - Header
  */
 
-/*masthead*/
-.container-masthead {
-	margin-top: 58px;
-}
 .logo, .ear-content {
 	margin: 20px 0px;
 }
@@ -620,6 +617,12 @@ h1.logo img { font-size: 1rem; }
 	}
 	.container-banner { padding: 1rem 0; }
 
+<<<<<<< Updated upstream
+=======
+	.off-canvas-wrapper {
+		overflow: visible;
+	}
+>>>>>>> Stashed changes
 }
 
 /**
