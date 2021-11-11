@@ -1,119 +1,68 @@
-#Government Web Template (GWT) for WordPress
+# ZURB Template
 
-Use this as a a guide for creating your banner slider images:
-- Image should be inserted as a featured image, full size
-- Caption input is on the title field
-- Linked article should be indicated in the content field
+**Please open all issues with this template on the main [Foundation for Sites](https://github.com/foundation/foundation-sites/issues) repo.**
 
-## Known bugs and requests for enhancements (RFEs)
-For a list of known issues and RFEs, check the [issue tracking system](https://github.com/iGovPhil/gwt-wordpress/issues).
+This is the official ZURB Template for use with [Foundation for Sites](https://get.foundation/sites/docs/). We use this template at ZURB to deliver static code to our clients. It has a Gulp-powered build system with these features:
 
-## Future updates
- - Tabbed Theme Options
+- Handlebars HTML templates with Panini
+- Sass compilation and prefixing
+- JavaScript module bundling with webpack
+- Built-in BrowserSync server
+- For production builds:
+  - CSS compression
+  - JavaScript module bundling with webpack
+  - Image compression
 
-## CHANGE LOGS
-**04/04/2019**
-- Fix conditional display on rightsidebar
+## Installation
 
-**01/17/2019**
-- Fix missing jquery file issue causing to disable all scripts within the page
+To use this template, your computer needs:
 
-**12/13/2018**
-- Fix theme missing color option issue
-- Added native style for alignleft alignright classes
+- [NodeJS](https://nodejs.org/en/) (Version 12 or greater recommended)
+- [Git](https://git-scm.com/)
 
-**03/07/2018**
-- Fix long text wrapping in menu
+This template can be installed with the Foundation CLI, or downloaded and set up manually.
 
-**10/03/2017**
-- Added URL Link support for banner Slider
+### Using the CLI
 
-**02/23/2017**
-- Fixed empty menu issue when nothing is assigned
-- Added automatic display of auxiliary menu if menu is present, removed theme option selection
-- Fixed banner left button bug.
+Install the Foundation CLI with this command:
 
-**07/22/2016**
-- [Update] Foundation version 6.2.2
-- [Features] Philippine Standard Time (PST)
-    - Font customization
-- [Features] Panel Top & Bottom section
-    - Background color customization
-- [Enhancement] Orbit Slider
-- [Enhancement] Responsive Mobile Menu
-- [Enhancement] Transparency Seal
-- [Enhancement] Accessibility Add-on
-    - High Contrast mode
-    - Skip to Content
-    - Skip to Footer
+```bash
+npm install foundation-cli --global
+```
 
-**02/29/2016**
-- Fixed mega menu structure
-- Fixed banner slider full width
-- Added feature image on post
-- Added default widgets on theme activation
-	- transparency seal Logo widget
-	- philippine standard time widget
-- Added theme customization on template's theme option
-    - Masthead logo image with text
-        - agency name
-        - tagline
-        - font color
-        - image logo alt text
-    - Content panel and sidebar customization
-        - border width
-        - border color
-        - border radius
-        - background color
-    - Content header font size and rendering
-    - Agency Footer's background color customization
-- Changed version branding to version 2.0 (Pansit)
-- Removed the Accessibility Add-on
-    - High Contrast Mode
-    - Grayscale Mode
-    - Toggle font size
+Use this command to set up a blank Foundation for Sites project with this template:
 
-**09/30/2015**
-- Fixed Agency Footer extra padding.
-- Changed the accessibility widget to right side 
+```bash
+foundation new --framework sites --template zurb
+```
 
-**09/22/2015**
-- Added new accessibility features:
-  - Toggle High contrast mode
-  - Toggle Grey scale
-  - Popup Accessibility Statement
-- Fixed Breadcrumbs '/' after Youre Here:
-- Fixed Panel Top extra padding issue.
-- Added mega menu feature
-- Sticky top menu
+The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
 
-**04/10/2015**
-- Added drop shadow on drop down menu
+Now `cd` to your project name and to start your project run
 
-**03/19/2015**
-- Added breadcrumbs support
+```bash
+foundation watch
+```
 
-**02/11/2015**
-- Smaller headings for Agency footer (use h3 tag)
-- Smaller headings for Content Post (use h5 tag)
-- Smaller headings for widgets
-- Bannerd title paddings
-- Remove box design on top and bottom panel, added custom class: box-mode
-- Smaller headings for Post Navigation (pagination) (use h4)
-- Automatic trim of character/word for Post lists
-- Responsive Logo Support
-- Accessibility shortcut bug fix
-- Created an option to automatically trim at specific characters/word for Post lists
-- Created an option to remove published date
-- Created an option to remove author
-- Removed box effect on Author
+### Manual Setup
 
-**08/07/2014**
-- Revamped new design
-- Added new widget locations (New widget locations banner section 1, banner section 2, ear content 1, ear content 2 not yet usable)
-- For banner content, use featured image to upload images, use the content area for linking the image to an external page, use the title for captions
+To manually set up the template, first download it with Git:
 
-**03/18/2014**
-- Full width template functions
-- Text decoration for standard footer links
-- Slider get functions
+```bash
+git clone https://github.com/foundation/foundation-zurb-template projectname
+```
+
+Then open the folder in your command line, and install the needed dependencies:
+
+```bash
+cd projectname
+yarn
+```
+
+Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+
+```
+http://localhost:8000
+```
+
+To create compressed, production-ready assets, run `yarn run build`.
