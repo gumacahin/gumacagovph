@@ -592,7 +592,7 @@ h1.logo img { font-size: 1rem; }
  * <= 1023px
  */
 @media screen and (max-width: 63.9375em) {
-	.container-masthead { margin-top: 42px; border-bottom: 1px solid #f2f2f2; }
+	.container-masthead { border-bottom: 1px solid #f2f2f2; }
 	.banner-content { padding: 1rem 0; }
 }
 
@@ -617,18 +617,20 @@ h1.logo img { font-size: 1rem; }
 	}
 	.container-banner { padding: 1rem 0; }
 
-<<<<<<< Updated upstream
-=======
 	.off-canvas-wrapper {
 		overflow: visible;
 	}
->>>>>>> Stashed changes
 }
 
 /**
  * 1025px <=> 1440px
  */
-@media only screen and (min-width: 64.0625em) and (max-width: 90em) { #agency-name { font-size: inherit; } }
+@media only screen and (min-width: 64.0625em) and (max-width: 90em) {
+	#agency-name { font-size: inherit; }
+	.off-canvas-wrapper {
+		overflow: visible;
+	}
+ }
 
 /*XLarge screens*/
 
@@ -652,7 +654,23 @@ h1.logo img { font-size: 1rem; }
 /**
  * Fixes sticky posts position.
  */
-.post-box .sticky {
+/* .post-box .sticky {
 	position: static;
+} */
+
+
+#main-nav .top-bar {
+	padding: 0;
 }
 
+#main-nav .top-bar, #main-nav .top-bar ul {
+    background-color: transparent;
+}
+
+#main-nav .top-bar ul > li {
+	background-color: #f7f7f7;
+}
+
+#main-content .post-box .sticky {
+	position: static;
+}

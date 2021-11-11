@@ -93,7 +93,7 @@ class GOVPH {
 	 *
 	 * @return void
 	 */
-	public function govph_options_page() {
+	public static function govph_options_page() {
 		?>
 	<div class="wrap">
 
@@ -1063,38 +1063,40 @@ function govph_displayoptions( $options ) {
 		break;
 		// TODO: disable option for widget position, make it dynamic, displays sidebars when atleast one widget is active.
 		case 'govph_content_position':
-			$content_class = 'large-12 medium-12 ';
-			if ( is_active_sidebar( 'left-sidebar' ) ) {
-				$content_class = 'large-8 medium-8 large-push-4 medium-push-4 ';
-				if ( is_active_sidebar( 'right-sidebar' ) ) {
-					$content_class = 'large-6 medium-6 large-push-3 medium-push-3 ';
-				}
-			} elseif ( is_active_sidebar( 'right-sidebar' ) ) {
-				$content_class = 'large-8 medium-8 ';
+			$content_class = 'small-12 small-order-1 ';
+			$left_sidebar  = is_active_sidebar( 'left-sidebar' );
+			$right_sidebar = is_active_sidebar( 'right-sidebar' );
+
+			if ( $right_sidebar && $left_sidebar ) {
+				$content_class .= 'medium-6 medium-order-2 large-6 large-order-2 ';
+			} elseif ( ( $right_sidebar || $left_sidebar ) && ! ( $right_sidebar && $left_sidebar ) ) {
+				$content_class .= 'medium-8 medium-order-2 large-8 large-order-2 ';
+			} else {
+				$content_class = 'medium-12 large-12 ';
 			}
 			echo esc_attr( $content_class );
 			break;
 		case 'govph_sidebar_position_left':
-			$sidebar_class = '';
-			if ( is_active_sidebar( 'left-sidebar' ) ) {
-				$sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
-				if ( is_active_sidebar( 'right-sidebar' ) ) {
-					$sidebar_class = 'large-3 medium-3 large-pull-6 medium-pull-6 ';
-				}
-			} elseif ( is_active_sidebar( 'right-sidebar' ) ) {
-				$sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
+			$sidebar_class = 'small-12 small-order-3 ';
+			$left_sidebar  = is_active_sidebar( 'left-sidebar' );
+			$right_sidebar = is_active_sidebar( 'right-sidebar' );
+
+			if ( $left_sidebar && $right_sidebar ) {
+				$sidebar_class .= 'medium-3 medium-order-1 large-3 large-order-1 ';
+			} elseif ( $left_sidebar || $right_sidebar && ! ( $right_sidebar && $left_sidebar ) ) {
+				$sidebar_class .= 'medium-4 medium-order-1 large-4 large-order-1 ';
 			}
 			echo esc_attr( $sidebar_class );
 			break;
 		case 'govph_sidebar_position_right':
-			$sidebar_class = '';
-			if ( is_active_sidebar( 'left-sidebar' ) ) {
-				$sidebar_class = 'large-4 medium-4 ';
-				if ( is_active_sidebar( 'right-sidebar' ) ) {
-					$sidebar_class = 'large-3 medium-3 ';
-				}
-			} elseif ( is_active_sidebar( 'right-sidebar' ) ) {
-				$sidebar_class = 'large-4 medium-4 ';
+			$sidebar_class = 'small-12 small-order-2 ';
+			$left_sidebar  = is_active_sidebar( 'left-sidebar' );
+			$right_sidebar = is_active_sidebar( 'right-sidebar' );
+
+			if ( $left_sidebar && $right_sidebar ) {
+				$sidebar_class .= 'medium-3 medium-order-3 large-3 large-order-3 ';
+			} elseif ( $left_sidebar || $right_sidebar && ! ( $right_sidebar && $left_sidebar ) ) {
+				$sidebar_class .= 'medium-4 medium-order-3 large-4 large-order-3 ';
 			}
 			echo esc_attr( $sidebar_class );
 			break;

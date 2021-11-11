@@ -10,15 +10,15 @@ if ( is_home() ) {
 	$banner_2_class = '';
 	$banner_3_class = '';
 	if ( is_active_sidebar( 'banner-section-1' ) && is_active_sidebar( 'banner-section-2' ) ) {
-		$banner_class   = 'large-6 columns';
-		$banner_2_class = 'large-3 columns';
-		$banner_3_class = 'large-3 columns';
+		$banner_class   = 'small-12 medium-6 large-6 columns';
+		$banner_2_class = 'small-12 medium-3 large-3 columns';
+		$banner_3_class = 'small-12 medium 3 large-3 columns';
 	} elseif ( is_active_sidebar( 'banner-section-1' ) && ! is_active_sidebar( 'banner-section-2' ) ) {
-		$banner_class   = 'large-8 columns';
-		$banner_2_class = 'large-4 columns';
+		$banner_class   = 'small-12 medium-8 large-8 columns';
+		$banner_2_class = 'small-12 medium-4 large-4 columns';
 	} elseif ( ! is_active_sidebar( 'banner-section-1' ) && is_active_sidebar( 'banner-section-2' ) ) {
-		$banner_class   = 'large-8 columns';
-		$banner_3_class = 'large-4 columns';
+		$banner_class   = 'small-12 medium-8 large-8 columns';
+		$banner_3_class = 'small-12 medium-4 large-4 columns';
 	}
 	$banner_class .= ' hide-for-small-only';
 }
@@ -28,7 +28,7 @@ if ( ! is_home() ) {
 	$container_class = 'banner-pads';
 }
 
-?>        
+?>
 				<!-- banner -->
 <div class="container-banner <?php echo esc_attr( $container_class ); ?>">
 	<?php govph_displayoptions( 'govph_slider_start' ); ?>

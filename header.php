@@ -9,7 +9,6 @@
  */
 
 ?>
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -24,19 +23,19 @@
 	<?php wp_head(); ?>
 
 	<style>
-		.container-main a, .container-main a:active, .container-main a:visited, 
+		.container-main a, .container-main a:active, .container-main a:visited,
 		.anchor a, .anchor a:active, .anchor a:visited {
 			<?php govph_displayoptions( 'govph_anchorcolor' ); ?>
 		}
 
-		.container-main a:focus, .container-main a:hover, 
+		.container-main a:focus, .container-main a:hover,
 		.anchor a:focus, .anchor a:hover {
 			<?php govph_displayoptions( 'govph_anchorcolor_hover' ); ?>
 		}
 		div .container-masthead {
 			<?php govph_displayoptions( 'govph_header_setting' ); ?>
 		}
-		h1.logo a {
+		h1.logo, h1.logo a {
 			<?php govph_displayoptions( 'govph_logo_setting' ); ?>
 		}
 		div.container-banner {
@@ -125,7 +124,7 @@
 
 <div id="a11y-modal" class="reveal large" title="Accessibility Statement" data-reveal>
 	<textarea rows="21" class="statement-textarea" readonly>
-This website adopts the Web Content Accessibility Guidelines (WCAG 2.0) as the accessibility standard for all its related web development and services. WCAG 2.0 is also an international standard, ISO 40500. This certifies it as a stable and referenceable technical standard. 
+This website adopts the Web Content Accessibility Guidelines (WCAG 2.0) as the accessibility standard for all its related web development and services. WCAG 2.0 is also an international standard, ISO 40500. This certifies it as a stable and referenceable technical standard.
 
 WCAG 2.0 contains 12 guidelines organized under 4 principles: Perceivable, Operable, Understandable, and Robust (POUR for short). There are testable success criteria for each guideline. Compliance to these criteria is measured in three levels: A, AA, or AAA. A guide to understanding and implementing Web Content Accessibility Guidelines 2.0 is available at: https://www.w3.org/TR/UNDERSTANDING-WCAG20/
 
@@ -133,20 +132,20 @@ Accessibility Features
 
 Shortcut Keys Combination Activation Combination keys used for each browser.
 
-	Chrome for Linux press (Alt+Shift+shortcut_key) 
-	Chrome for Windows press (Alt+shortcut_key) 
-	For Firefox press (Alt+Shift+shortcut_key) 
+	Chrome for Linux press (Alt+Shift+shortcut_key)
+	Chrome for Windows press (Alt+shortcut_key)
+	For Firefox press (Alt+Shift+shortcut_key)
 	For Internet Explorer press (Alt+Shift+shortcut_key) then press (enter)
 	On Mac OS press (Ctrl+Opt+shortcut_key)
 
-	Accessibility Statement (Combination + 0): Statement page that will show the available accessibility keys. 
-	Home Page (Combination + H): Accessibility key for redirecting to homepage. 
-	Main Content (Combination + R): Shortcut for viewing the content section of the current page. 
-	FAQ (Combination + Q): Shortcut for FAQ page. 
-	Contact (Combination + C): Shortcut for contact page or form inquiries. 
-	Feedback (Combination + K): Shortcut for feedback page. 
-	Site Map (Combination + M): Shortcut for site map (footer agency) section of the page. 
-	Search (Combination + S): Shortcut for search page. 
+	Accessibility Statement (Combination + 0): Statement page that will show the available accessibility keys.
+	Home Page (Combination + H): Accessibility key for redirecting to homepage.
+	Main Content (Combination + R): Shortcut for viewing the content section of the current page.
+	FAQ (Combination + Q): Shortcut for FAQ page.
+	Contact (Combination + C): Shortcut for contact page or form inquiries.
+	Feedback (Combination + K): Shortcut for feedback page.
+	Site Map (Combination + M): Shortcut for site map (footer agency) section of the page.
+	Search (Combination + S): Shortcut for search page.
 
 Press esc, or click the close the button to close this dialog box.
 	</textarea>
@@ -160,12 +159,12 @@ Press esc, or click the close the button to close this dialog box.
 
 		<!-- off-canvas title bar for 'small' screen -->
 		<div id="off-canvas-container" class="title-bar columns hide-for-large" data-responsive-toggle="main-nav" data-hide-for="large">
+			<div class="title-bar-left">
+				<span class="title-bar-title name"><a href="http://www.gov.ph">GOVPH</a></span>
+			</div>
 			<div class="title-bar-right">
 				<span class="title-bar-title">Menu</span>
 				<button class="menu-icon" type="button" data-open="offCanvasRight"></button>
-			</div>
-			<div class="title-bar-left">
-				<span class="title-bar-title name"><a href="http://www.gov.ph">GOVPH</a></span>
 			</div>
 		</div>
 
@@ -213,7 +212,7 @@ Press esc, or click the close the button to close this dialog box.
 		<!-- "main-nav" top-bar menu for 'medium' and up -->
 		<div id="main-nav">
 			<div class="row">
-				<div class="large-12 columns">
+				<div class="top-bar large-12 columns">
 					<nav class="top-bar-left">
 						<ul class="dropdown menu" data-dropdown-menu>
 							<li class="name"><a href="http://www.gov.ph">GOVPH</a></li>
@@ -289,19 +288,23 @@ Press esc, or click the close the button to close this dialog box.
 		<!-- original content goes in this container -->
 		<div class="off-canvas-content" data-off-canvas-content>
 			<?php
-			$name_slogan_class   = 'large-12 ';
-			$ear_content_class   = '';
-			$ear_content_2_class = '';
-			if ( is_active_sidebar( 'ear-content-1' ) && is_active_sidebar( 'ear-content-2' ) ) {
-				$name_slogan_class   = 'large-6 ';
-				$ear_content_class   = 'large-3 ';
-				$ear_content_2_class = 'large-3 ';
-			} elseif ( is_active_sidebar( 'ear-content-1' ) && ! is_active_sidebar( 'ear-content-2' ) ) {
-				$name_slogan_class = 'large-9 ';
-				$ear_content_class = 'large-3 ';
-			} elseif ( ! is_active_sidebar( 'ear-content-1' ) && is_active_sidebar( 'ear-content-2' ) ) {
-				$name_slogan_class   = 'large-9 ';
-				$ear_content_2_class = 'large-3 ';
+			$name_slogan_class     = 'small-12 small-order-1 ';
+			$ear_content_1_class   = 'small-12 small-order-2 ';
+			$ear_content_2_class   = 'small-12 small-order-3 ';
+
+			$ear_content_1_active = is_active_sidebar( 'ear-content-1' );
+			$ear_content_2_active = is_active_sidebar( 'ear-content-2' );
+
+			if ( $ear_content_1_active && $ear_content_2_active ) {
+				$name_slogan_class   .= 'medium-6 medium-order-1 large-6 large-order-1 ';
+				$ear_content_1_class .= 'medium-3 medium-order-2 large-3 large-order-2 ';
+				$ear_content_2_class .= 'medium-3 medium-order-3 large-3 large-order-3 ';
+			} elseif ( ( $ear_content_1_active || $ear_content_2_active ) && ! ( $ear_content_1_active && $ear_content_2_active ) ) {
+				$name_slogan_class   .= 'medium-8 medium-order-1 large-8 large-order-1 ';
+				$ear_content_1_class .= 'medium-4 medium-order-2 large-4 large-order-2 ';
+				$ear_content_2_class .= 'medium-4 medium-order-3 large-4 large-order-3 ';
+			} else {
+				$name_slogan_class = 'medium-12 large-12 ';
 			}
 			?>
 
@@ -309,11 +312,18 @@ Press esc, or click the close the button to close this dialog box.
 			<header class="container-masthead">
 				<div class="row">
 					<div class="<?php echo esc_attr( $name_slogan_class ); ?> columns">
-						<h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php govph_displayoptions( 'govph_logo' ); ?></a></h1>
+						<h1 class="logo">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+								title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+								rel="home"
+								>
+								<?php govph_displayoptions( 'govph_logo' ); ?>
+							</a>
+						</h1>
 					</div>
 
 					<?php if ( is_active_sidebar( 'ear-content-1' ) ) : ?>
-						<div class="<?php echo esc_attr( $ear_content_class ); ?> columns">
+						<div class="<?php echo esc_attr( $ear_content_1_class ); ?> columns">
 						<?php do_action( 'before_sidebar' ); ?>
 						<?php dynamic_sidebar( 'ear-content-1' ); ?>
 						</div>

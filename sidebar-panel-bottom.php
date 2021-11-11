@@ -11,19 +11,19 @@
 <div id="panel-bottom" class="anchor" role="complementary">
 	<div class="row">
 		<?php if ( is_active_sidebar( 'panel-bottom-1' ) ) : ?>
-		<aside id="panel-bottom-1" class="<?php govph_displayoptions( 'govph_position_panel_bottom' ); ?>" role="complementary">
+		<aside id="panel-bottom-1" class="small-12 medium-12 large-3 column" role="complementary">
 			<?php do_action( 'before_sidebar' ); ?>
 			<?php dynamic_sidebar( 'panel-bottom-1' ); ?>
 		</aside>
 		<?php endif; ?>
 		<?php if ( is_active_sidebar( 'panel-bottom-2' ) ) : ?>
-		<aside id="panel-bottom-2" class="<?php govph_displayoptions( 'govph_position_panel_bottom' ); ?>" role="complementary">
+		<aside id="panel-bottom-2" class="small-12 medium-12 large-3 column" role="complementary">
 			<?php do_action( 'before_sidebar' ); ?>
 			<?php dynamic_sidebar( 'panel-bottom-2' ); ?>
 		</aside>
 		<?php endif; ?>
 		<?php if ( is_active_sidebar( 'panel-bottom-3' ) ) : ?>
-		<aside id="panel-bottom-3" class="<?php govph_displayoptions( 'govph_position_panel_bottom' ); ?>" role="complementary">
+		<aside id="panel-bottom-3" class="small-12 medium-12 large-3 column" role="complementary">
 			<?php do_action( 'before_sidebar' ); ?>
 			<?php dynamic_sidebar( 'panel-bottom-3' ); ?>
 		</aside>
