@@ -12,6 +12,10 @@ UNCSS_OPTIONS:
 
 # Gulp will reference these paths when it copies files
 PATHS:
+  # Path to css folder
+  css: "assets/css"
+  # Path to images folder
+  js: "assets/js"
   # Path to dist folder
   dist: "dist"
   # Paths to static assets that aren't images, CSS, or JavaScript

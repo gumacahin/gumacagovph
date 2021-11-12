@@ -39,4 +39,5 @@ function govph_default_widget() {
 	);
 	update_option( 'sidebars_widgets', $new_active_widgets );
 }
-add_action( 'after_switch_theme', 'govph_default_widget', 10, 2 );
+// FIXME: Maybe this is not a good idea
+//add_action( 'after_switch_theme', 'govph_default_widget', 10, 2 );

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Official Template for Foundation for Sites.",
   "main": "gulpfile.babel.js",
-	"author": "Automattic Theme Team",
+  "author": "Automattic Theme Team",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "WordPress",
@@ -12,7 +12,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-		"watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
     "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
@@ -47,6 +47,7 @@
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.27.5",
     "dir-archiver": "^1.1.1",
+    "expose-loader": "^3.1.0",
     "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
