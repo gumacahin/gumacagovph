@@ -450,7 +450,6 @@ h1.logo img { font-size: 1rem; }
 .container-banner { border-top: 1px solid #f2f2f2; }
 .container-banner .entry-title { text-transform: none; line-height: 1; }
 .banner-pads { padding: 15px 0 !important; margin: 0; border-bottom: 1px solid #f2f2f2; }
-.orbit-container { height: auto !important; }
 .orbit-slide { max-height: 100% !important; }
 .orbit-bullets { margin: 0; }
 .orbit-bullets button { width: 1vw; height: 1vw; vertical-align: middle; }
@@ -651,14 +650,6 @@ h1.logo img { font-size: 1rem; }
  */
 @media only screen and (min-width: 120.063em) { }
 
-/**
- * Fixes sticky posts position.
- */
-/* .post-box .sticky {
-    position: static;
-} */
-
-
 #main-nav .top-bar {
     padding: 0;
 }
@@ -673,4 +664,13 @@ h1.logo img { font-size: 1rem; }
 
 #main-content .post-box .sticky {
     position: static;
+}
+
+.orbit-container { height: 460px; }  /* Set to height of slides */
+
+.orbit-container .orbit-slides-container > * {
+  position: relative;
+  margin-left: 0;
+  float: left;
+  height: 100%;
 }

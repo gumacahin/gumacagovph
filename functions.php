@@ -43,7 +43,7 @@ require get_template_directory() . '/inc/govph-widget.php';
 /*
  * Default sidebar contents
  */
-require get_template_directory() . '/inc/sidebar.php';
+// require get_template_directory() . '/inc/sidebar.php';
 
 /*
  * Custom template tags for this theme.
