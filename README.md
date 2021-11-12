@@ -1,7 +1,7 @@
 # Gumaca Government Web Template
 
 Gumaca Government Web Template (gumacagwt) is a Philippine Uniform Website
-Content Policy (UWCP) compliant WordPress based on [GWT for WordPress](https://github.com/iGovPhil/gwt-wordpress).
+Content Policy (UWCP) compliant WordPress theme based on [GWT for WordPress](https://github.com/iGovPhil/gwt-wordpress).
 
 ## Built with:
 
