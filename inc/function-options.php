@@ -1023,18 +1023,18 @@ function govph_displayoptions( $options ) {
 			echo esc_html( $logo_setting );
 			break;
 		case 'govph_logo':
-			$logo_image = ( ! empty( $option['govph_logo'] ) ? $option['govph_logo'] : get_template_directory_uri() . '/images/logo-masthead-large.png' );
-			$add_logo   = ( ! empty( $option['govph_logo_enable'] ) && 1 == $option['govph_logo_enable'] ) ? '<img src="' . esc_url( $logo_image ) . '" />' :
+			$logo_image   = ( ! empty( $option['govph_logo'] ) ? $option['govph_logo'] : get_template_directory_uri() . '/images/logo-masthead-large.png' );
+			$the_logo_alt = trim( ( ! empty( $option['govph_agency_name'] ) ? $option['govph_agency_name'] : '' ) . ' Official Logo' );
+			$the_logo     = ( ! empty( $option['govph_logo_enable'] ) && 1 == $option['govph_logo_enable'] ) ? '<img id="agency-logo" alt="' . $the_logo_alt . '" src="' . esc_url( $logo_image ) . '" />' :
 			'<div id="textlogo-wrapper">
-        <div id="textlogo-image"><img alt="' . ! empty( $option['govph_agency_name'] ) . ' Official Logo" src="' . $logo_image . '" height="100px" width="100px"/></div>
+        <div id="textlogo-image"><img alt="' . $the_logo_alt . '" src="' . $logo_image . '" height="100px" width="100px"/></div>
         <div id="textlogo-inner-wrapper">
           <div id="agency-heading">Republic of the Philippines</div>
           <div id="agency-name">' . ( ! empty( $option['govph_agency_name'] ) ? $option['govph_agency_name'] : '' ) . '</div>
           <div id="agency-tagline">' . ( ! empty( $option['govph_agency_tagline'] ) ? $option['govph_agency_tagline'] : '' ) . '</div>
         </div>
        </div>';
-			// FIXME: linter complains.
-			echo $add_logo;
+			echo $the_logo;
 			break;
 		case 'govph_header_setting':
 			$header_setting  = ( ! empty( $option['govph_headercolor'] ) ? 'background-color:' . $option['govph_headercolor'] . ';' : '' );
