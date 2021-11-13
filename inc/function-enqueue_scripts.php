@@ -12,11 +12,6 @@
  */
 function gwt_wp_scripts() {
 	// Enqueue CSS.
-	wp_enqueue_style( 'gwt_wp-foundation', get_template_directory_uri() . '/assets/css/app.css', array(), '20160530' );
-	wp_enqueue_style( 'gwt_wp-fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '20160530' );
-
-	// Add Genericons, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 	wp_enqueue_style( 'gwt_wp-user-style', get_stylesheet_uri(), array(), '20160530' );
 
 	// Enqueue JS.

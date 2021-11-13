@@ -33,6 +33,7 @@
     "map": false
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "foundation-sites": "^6.7.4",
     "jquery": "^3.6.0",
     "motion-ui": "latest",

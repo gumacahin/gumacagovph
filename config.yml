@@ -12,6 +12,8 @@ UNCSS_OPTIONS:
 
 # Gulp will reference these paths when it copies files
 PATHS:
+  # Path to fonts folder
+  fonts: "./node_modules/font-awesome/fonts"
   # Path to css folder
   css: "assets/css"
   # Path to images folder

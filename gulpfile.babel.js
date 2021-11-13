@@ -40,7 +40,8 @@ gulp.task(
 	"build",
 	gulp.series(
 		clean,
-		gulp.parallel(pages, javascript, images, copy),
+		// FIXME: copyFonts doesn't work.
+		gulp.parallel(pages, javascript, images, copy, copyFonts),
 		sassBuild,
 		styleGuide
 	)
@@ -59,6 +60,12 @@ function clean(done) {
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
 	return gulp.src(PATHS.assets).pipe(gulp.dest(PATHS.dist + "/assets"));
+}
+
+// Copy files out of the font awesome folder
+// This task skips over the "img", "js", and "scss" folders, which are parsed separately
+function copyFonts() {
+	return gulp.src(PATHS.fonts).pipe(gulp.dest(PATHS.dist + "/assets"));
 }
 
 // Copy page templates into finished HTML files
