@@ -86,6 +86,6 @@ var gwtpstReady = function(){
 
 <?php wp_footer(); ?>
 
-<div><a href="#page" id="back-to-top" style="display: inline;"><i class="fa fa-arrow-circle-up fa-2x"></i></a></div>
+<div><a href="#top" id="back-to-top" style="display: none;"><i class="fa fa-arrow-circle-up fa-2x"></i></a></div>
 </body>
 </html>

@@ -27,7 +27,7 @@ function govph_default_widget() {
 		array(
 			1 => array(
 				'title' => '',
-				'text'  => '<a href=""><img id="tp-seal" src="' . $templatedir . '/images/transparency-seal-160x160.png" alt="transparency seal logo" title="Transparency Seal"></a>',
+				'text'  => '<a href=""><img id="tp-seal" src="' . $templatedir . '/assets/img/transparency-seal-160x160.png" alt="transparency seal logo" title="Transparency Seal"></a>',
 			),
 			2 => array(
 				'title' => '',

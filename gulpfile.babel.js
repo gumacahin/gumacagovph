@@ -63,9 +63,10 @@ function copy() {
 }
 
 // Copy files out of the font awesome folder
-// This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copyFonts() {
-	return gulp.src(PATHS.fonts).pipe(gulp.dest(PATHS.dist + "/assets"));
+	return gulp
+		.src(PATHS.font_assets)
+		.pipe(gulp.dest(PATHS.dist + "/assets/fonts"));
 }
 
 // Copy page templates into finished HTML files

@@ -13,17 +13,22 @@ UNCSS_OPTIONS:
 # Gulp will reference these paths when it copies files
 PATHS:
   # Path to fonts folder
-  fonts: "./node_modules/font-awesome/fonts"
+  fonts: "assets/fonts"
   # Path to css folder
   css: "assets/css"
   # Path to images folder
   js: "assets/js"
   # Path to dist folder
   dist: "dist"
+  # Path to font awesome fonts
   # Paths to static assets that aren't images, CSS, or JavaScript
   assets:
     - "src/assets/**/*"
     - "!src/assets/{img,js,scss}/**/*"
+  admin_assets:
+    - "src/assets/admin/*/**"
+  font_assets:
+    - "node_modules/font-awesome/fonts/*"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/foundation-sites/scss"

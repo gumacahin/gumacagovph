@@ -72,6 +72,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<a id="top" href="#main-content" class="sr-only show-on-focus">Skip to content.</a>
 
 <div id="accessibility-shortcuts">
 	<ul>

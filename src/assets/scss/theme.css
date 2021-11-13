@@ -674,3 +674,8 @@ h1.logo img { font-size: 1rem; }
   float: left;
   height: 100%;
 }
+
+li.search.right {
+	display: flex;
+	align-items: center;
+}

@@ -997,7 +997,7 @@ function gwt_enqueue_color_picker( $hook_suffix ) {
 	wp_enqueue_media();
 	wp_enqueue_style( 'wp-color-picker' );
 	// FIXME: add appropriate ver.
-	wp_enqueue_script( 'my-script-handle', get_template_directory_uri() . '/js/color.js', array( 'wp-color-picker' ), false, true );
+	wp_enqueue_script( 'gwt-color-picker', get_template_directory_uri() . '/assets/admin/js/color.js', array( 'wp-color-picker' ), false, true );
 }
 
 if ( is_admin() ) {
@@ -1023,7 +1023,7 @@ function govph_displayoptions( $options ) {
 			echo esc_html( $logo_setting );
 			break;
 		case 'govph_logo':
-			$logo_image   = ( ! empty( $option['govph_logo'] ) ? $option['govph_logo'] : get_template_directory_uri() . '/images/logo-masthead-large.png' );
+			$logo_image   = ( ! empty( $option['govph_logo'] ) ? $option['govph_logo'] : get_template_directory_uri() . '/assets/img/logo-masthead-large.png' );
 			$the_logo_alt = trim( ( ! empty( $option['govph_agency_name'] ) ? $option['govph_agency_name'] : '' ) . ' Official Logo' );
 			$the_logo     = ( ! empty( $option['govph_logo_enable'] ) && 1 == $option['govph_logo_enable'] ) ? '<img id="agency-logo" alt="' . $the_logo_alt . '" src="' . esc_url( $logo_image ) . '" />' :
 			'<div id="textlogo-wrapper">
