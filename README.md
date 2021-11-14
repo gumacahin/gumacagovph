@@ -4,7 +4,60 @@ Gumaca Government Web Template is a WordPress theme that complies with the
 Uniform Website Content Policy (UWCP) of the government of the Philippines.
 This theme is based on [GWT for WordPress](https://github.com/iGovPhil/gwt-wordpress).
 
-## Built with:
+## Project Status
+
+The goal of this project is to produce a WordPress theme that (1) complies with
+the UWCP and (2) complies with WordPress standards enough to have it published
+in the official theme repository.
+
+Much of the work done thus far is setting up build tools and cleaning up the
+code.
+
+## Getting Started
+
+### Clone the repo.
+```
+cd <path to wp-content/themes>
+git clone https://github.com/gumacahin/gumacagwt/
+```
+
+### Install javascript dependencies.
+```
+yarn
+```
+
+### Install php dependencies.
+```
+composer install
+```
+
+### Start dev server
+```
+yarn start
+```
+
+### Export bundle
+```
+yarn build
+```
+
+```
+yarn bundle
+```
+
+Bundled theme files will be in the `wp-content/themes` directory.
+
+
+## TODOs
+
+* Streamline build
+* Add tests
+* Optimize
+* WP code standards
+
+PRs are welcome.
+
+## Built with
 
 * [Foundation for Sites](https://github.com/foundation/foundation-sites)
 
