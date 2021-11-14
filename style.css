@@ -42,7 +42,7 @@ Text Domain: gumacagwt
 #panel-top .widget_nav_menu,
 #sidebar-right .widget_nav_menu,
 #sidebar-left .widget_nav_menu {
-	background-color: #057d2f;
+	background-color: #057d2f !important;
 }
 
 #menu-quick-access-menu {
