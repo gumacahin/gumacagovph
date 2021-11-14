@@ -2,38 +2,33 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package gwt_wp
+ * @package gumacagwt
  */
 
+$active_panel_count = 0;
+for ( $i = 1; $i < 5; $i++ ) {
+	if ( is_active_sidebar( "panel-top-$i" ) ) {
+		$active_panel_count++;
+	}
+}
+
+if ( 0 === $active_panel_count ) {
+	return;
+}
+
+$large_width = 12 / $active_panel_count;
+$panel_class = "column small-12 medium-12 large-$large_width";
 ?>
 
-<?php if ( is_active_sidebar( 'panel-top-1' ) || is_active_sidebar( 'panel-top-2' ) || is_active_sidebar( 'panel-top-3' ) || is_active_sidebar( 'panel-top-4' ) ) : ?>
 <div id="panel-top" class="anchor" role="complementary">
 	<div class="row">
-	<?php if ( is_active_sidebar( 'panel-top-1' ) ) : ?>
-			<aside id="panel-top-1" class="small-12 medium-12 large-3 column" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php dynamic_sidebar( 'panel-top-1' ); ?>
-		</aside>
-	<?php endif; ?>
-	<?php if ( is_active_sidebar( 'panel-top-2' ) ) : ?>
-			<aside id="panel-top-2" class="small-12 medium-12 large-3 column" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php dynamic_sidebar( 'panel-top-2' ); ?>
-		</aside>
-	<?php endif; ?>
-	<?php if ( is_active_sidebar( 'panel-top-3' ) ) : ?>
-			<aside id="panel-top-3" class="small-12 medium-12 large-3 column" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php dynamic_sidebar( 'panel-top-3' ); ?>
-		</aside>
-	<?php endif; ?>
-	<?php if ( is_active_sidebar( 'panel-top-4' ) ) : ?>
-			<aside id="panel-top-4" class="small-12 medium-12 large-3 column" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php dynamic_sidebar( 'panel-top-4' ); ?>
+	<?php for ( $i = 1; $i < 5; $i++ ) : ?>
+		<?php if ( is_active_sidebar( "panel-top-$i" ) ) : ?>
+				<aside id="<?php echo esc_attr( "panel-top-$i" ); ?>" class="<?php echo esc_attr( $panel_class ); ?>" role="complementary">
+			<?php do_action( 'before_sidebar' ); ?>
+			<?php dynamic_sidebar( "panel-top-$i" ); ?>
 			</aside>
-	<?php endif; ?>
+		<?php endif; ?>
+	<?php endfor; ?>
 	</div>
 </div>
-<?php endif; ?>

@@ -5,6 +5,9 @@
  * @package gwt_wp
  */
 
+$theme = wp_get_theme();
+define( 'GUMACA_GWT_VERSION', $theme->version );
+
 /**
  * Template Initialize
  */
@@ -54,6 +57,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+/*
+ * Customizations for gumacagwt.
+ */
+require get_template_directory() . '/inc/gumacagwt-extras.php';
 
 /*
  * Customizer additions.

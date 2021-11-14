@@ -11,6 +11,124 @@ Text Domain: gumacagwt
 */
 
 
-@import url(./assets/css/app.css)
+@import url(./assets/css/app.css);
 
 /* Add your styles below. */
+
+/* WP likes wrapping shotcodes with paragraph tags. Let's not display them. */
+.widget_block p:empty {
+	display: none;
+}
+
+#footer .wp-block-archives-list {
+	list-style: none;
+}
+
+.wp-block-buttons.is-centered {
+	justify-content: center;
+}
+
+/* Centers the transparency seal in it's wrapper.  */
+#gumaca-transparency-seal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#panel-top-1 {
+	padding: 0;
+}
+
+#panel-top .widget_nav_menu,
+#sidebar-right .widget_nav_menu,
+#sidebar-left .widget_nav_menu {
+	background-color: #057d2f;
+}
+
+#menu-quick-access-menu {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+#menu-quick-access-menu .menu-item a {
+	border-radius: 3px;
+	color: #ffffff;
+}
+
+#menu-quick-access-menu .current-menu-item a {
+	background: #7d1511;
+	color: #ffffff;
+}
+
+/**
+ * GWT fixes
+ */
+
+/* This fixes the positioning of sticky posts. */
+.post-box .sticky {
+	position: static;
+}
+
+#menu-quick-access-menu {
+	flex-direction: column;
+}
+
+#sidebar-right #menu-quick-access-menu,
+#sidebar-left #menu-quick-access-menu {
+	flex-direction: column;
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+	#menu-quick-access-menu {
+		flex-direction: row;
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+
+/*
+ * Fixes for buttons. What a nightmare.
+ */
+/* .is-style-outline > .wp-block-button__link:not(.has-background):hover,
+.wp-block-button__link.is-style-outline:not(.has-background):hover {
+	color: #057d2f;
+}
+
+.wp-block-button__link {
+	background-color: #057d2f;
+}
+
+.wp-block-button .wp-block-button__link:not(.has-text-color) {
+	color: #ffffff;
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link(.has-text-color) {
+	color: #ffffff;
+}
+
+.wp-block-button.is-outline .wp-block-button__link:not(.has-background) {
+	background-color: #057d2f;
+}
+
+.wp-block-button.is-style-outline .wp-button__link(.has-border-color) {
+	border-color: #057d2f;
+}
+
+.is-style-outline > .wp-block-button__link:not(.has-text-color) {
+	color: #057d2f;
+} */

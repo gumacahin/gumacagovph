@@ -147,7 +147,7 @@ h6 {font-size: 0.63rem;}
 	background-color: #f7f7f7;
 	position: sticky;
 	top: 0;
-	z-index: 4;
+	z-index: 999;
 	width: 100%;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -666,7 +666,8 @@ h1.logo img { font-size: 1rem; }
     position: static;
 }
 
-.orbit-container { height: 460px; }  /* Set to height of slides */
+  /* Set to height of slides */
+.orbit-container { height: 460px !important; }
 
 .orbit-container .orbit-slides-container > * {
   position: relative;
@@ -675,6 +676,12 @@ h1.logo img { font-size: 1rem; }
   height: 100%;
 }
 
+#banner-slider {
+	flex: 1;
+}
+
+
+/* Vertically centers search form in the main navigation. */
 li.search.right {
 	display: flex;
 	align-items: center;

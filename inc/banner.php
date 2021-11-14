@@ -38,7 +38,7 @@ if ( ! is_home() ) {
 		if ( $banner_slider ) :
 			?>
 			<?php if ( govph_displayoptions( 'govph_slider_full' ) === 'active' ) : ?>
-				<div id="banner-slider" class="large-12 hide-for-small-only">
+				<div id="banner-slider" class="large-12 <?php esc_attr( $banner_class ); ?>">
 			<?php else : ?>
 				<div id="banner-slider" class="<?php echo esc_attr( $banner_class ); ?>">
 			<?php endif; ?>

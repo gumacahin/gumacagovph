@@ -221,6 +221,7 @@ function watch() {
 		.watch("src/helpers/**/*.js")
 		.on("all", gulp.series(resetPages, pages, browser.reload));
 	gulp.watch("src/assets/scss/**/*.scss").on("all", sassBuild);
+	gulp.watch("src/assets/scss/**/*.css").on("all", sassBuild);
 	gulp
 		.watch("src/assets/js/**/*.js")
 		.on("all", gulp.series(javascript, browser.reload));
