@@ -12,19 +12,7 @@
 <div class="post-box">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'callout secondary' ); ?>>
 
-		<?php
-			$content_class = 'large-12';
-		if ( has_post_thumbnail() ) :
-			$content_class = 'large-9';
-			the_post_thumbnail( 'thumbnail', array( 'class' => 'thumbnail' ) );
-			endif;
-
-		if ( has_post_thumbnail() && is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) :
-			$content_class = 'large-8';
-			endif;
-		?>
-
-		<div class="entry-wrapper <?php echo esc_html( $content_class ); ?> medium-12 small-12">
+		<div class="entry-wrapper large-12 medium-12 small-12">
 			<!-- entry-header -->
 			<header class="entry-header">
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>

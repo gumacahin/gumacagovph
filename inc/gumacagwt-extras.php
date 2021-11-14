@@ -17,13 +17,13 @@ function gumacagwt_body_class( $classes ) {
 }
 add_filter( 'body_class', 'gumacagwt_body_class', 10, 1 );
 
-
 /**
- * This will hide widgets
+ * Hide some widgets or widget areas.
  *
- * @param array     $instance The current widget instance's settings.
- * @param WP_Widget $this The current widget instance.
- * @param array     $args An array of default widget arguments.
+ * @param  mixed $settings The widget instance setttings.
+ * @param  mixed $widget The widget instance.
+ * @param  mixed $args An array of default widget arguments.
+ * @return array|boolean The widget settings or false.
  */
 function gumacagwt_filter_widget_display_callback( $settings, $widget, $args ) {
 
@@ -100,8 +100,6 @@ function gumacagwt_print_menu_shortcode( $atts, $content = null ) {
 	return $nav_menu;
 }
 
-remove_filter( 'the_content', 'wpautop' );
-
 add_shortcode( 'menu', 'gumacagwt_print_menu_shortcode' );
 
 /**
@@ -114,7 +112,9 @@ function gumacagwt_register_sidebars() {
 		array(
 			'id'          => 'front-page-before-loop',
 			'name'        => __( 'Front Page Before Loop' ),
-			'description' => __( 'Front page widget area before loop, first page only.', '$text_domain' ),
+			'description' => __( 'Front page widget area before loop, first page only.', 'gumacagwt' ),
+			'before_widget' => '',
+			'after_widget' => '',
 		)
 	);
 }

@@ -11,14 +11,6 @@
 <div class="post-box">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'callout secondary' ); ?>>
 
-		<?php
-			$content_class = 'large-12';
-		if ( has_post_thumbnail() ) :
-			$content_class = 'large-9';
-			the_post_thumbnail( 'thumbnail', array( 'class' => 'thumbnail' ) );
-			endif;
-		?>
-
 		<div class="entry-wrapper <?php echo esc_html( $content_class ); ?> medium-12 small-12">
 			<!-- entry-header -->
 			<header class="entry-header">

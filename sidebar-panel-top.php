@@ -12,7 +12,7 @@ for ( $i = 1; $i < 5; $i++ ) {
 	}
 }
 
-if ( 0 === $active_panel_count ) {
+if ( 0 === $active_panel_count || ! is_front_page() || is_paged() ) {
 	return;
 }
 

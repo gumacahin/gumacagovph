@@ -19,9 +19,11 @@ require_once 'inc/banner.php';
 		<div class="container-main" role="document">
 			<div id="main-content" class="row">
 				<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>columns" role="main">
-					<?php if ( have_posts() ) : ?>
-
-						<?php
+					<?php
+					if ( have_posts() ) :
+						if ( is_front_page() ) {
+							dynamic_sidebar( 'front-page-before-loop' );
+						}
 						// Start the loop.
 						while ( have_posts() ) :
 							the_post();
