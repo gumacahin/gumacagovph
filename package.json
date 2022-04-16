@@ -1,0 +1,93 @@
+{
+  "name": "foundation-zurb-template",
+  "version": "0.1.0",
+  "description": "Official Template for Foundation for Sites.",
+  "main": "gulpfile.babel.js",
+  "author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --production",
+    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:rtl": "rtlcss style.css style-rtl.css",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "bundle": "dir-archiver --src . --dest ../gumacagwt.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map config.yml dist gulpfile.babel.js phpcs.xml yarn.lock src"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "foundation-sites": "^6.7.4",
+    "jquery": "^3.6.0",
+    "motion-ui": "latest",
+    "what-input": "^5.2.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/register": "^7.15.3",
+    "@wordpress/scripts": "^12.1.0",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.27.5",
+    "dir-archiver": "^1.1.1",
+    "expose-loader": "^3.1.0",
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-extname": "^0.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^4.1.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "js-yaml": "^4.1.0",
+    "js-yaml-js-types": "^1.0.0",
+    "node-sass": "^6.0.1",
+    "panini": "latest",
+    "postcss": "^8.3.11",
+    "postcss-uncss": "^0.17.0",
+    "rimraf": "^3.0.2",
+    "rtlcss": "^2.5.0",
+    "style-sherpa": "^1.0.2",
+    "uncss": "^0.17.3",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^5.52.1",
+    "webpack-stream": "^7.0.0",
+    "yargs": "^17.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gumacahin/gumacagwt"
+  },
+  "bugs": {
+    "url": "https://github.com/gumacahin/gumacagwt/issues",
+    "email": "mvalviar@gmail.com"
+  },
+  "private": true,
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

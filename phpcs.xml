@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards for GlotPress">
+
+
+	<!-- Check all PHP files in directory tree by default. -->
+	<arg name="extensions" value="php"/>
+
+	<exclude-pattern>*/vendor/*$</exclude-pattern>
+	<exclude-pattern>*/tests/*$</exclude-pattern>
+
+	<!-- Allow invoking just `phpcs` on command line without assuming STDIN for file input. -->
+	<file>.</file>
+
+	<!-- Show progress and sniff codes in all reports -->
+	<arg value="ps"/>
+
+	<!-- Check up to 20 files simultaneously. -->
+	<arg name="parallel" value="20"/>
+
+	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
+	<arg name="cache"/>
+
+	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-Extra" />
+	<rule ref="WordPress.Security.EscapeOutput" />
+
+	<rule ref="Generic.WhiteSpace.ScopeIndent" />
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" value="gumacagwt" />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<properties>
+			<property name="maxColumn" value="80"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.Commenting.DocComment.MissingShort">
+		<!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
+		<severity>0</severity>
+	</rule>
+
+	<!-- Set minimum supported WordPress version. -->
+	<config name="minimum_supported_wp_version" value="3.0"/>
+
+	<!-- Run against the PHPCompatibilityWP ruleset -->
+	<rule ref="PHPCompatibilityWP"/>
+
+</ruleset>

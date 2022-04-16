@@ -12,8 +12,8 @@
  */
 function gwt_wp_scripts() {
 	// Enqueue CSS.
-	wp_enqueue_style( 'govph-main-style', get_template_directory_uri() . '/assets/css/app.css', array(), GUMACA_GWT_VERSION );
-	wp_enqueue_style( 'govph-user-style', get_stylesheet_uri(), array( 'govph-main-style' ), GUMACA_GWT_VERSION );
+	wp_enqueue_style( 'gumacagwt-main-style', get_template_directory_uri() . '/assets/css/app.css', array(), GUMACA_GWT_VERSION );
+	wp_enqueue_style( 'gumacagwt-user-style', get_stylesheet_uri(), array( 'gumacagwt-main-style' ), GUMACA_GWT_VERSION );
 
 	// Enqueue JS.
 	wp_enqueue_script( 'gwt_wp-foundation', get_template_directory_uri() . '/assets/js/app.js', array( 'jquery' ), GUMACA_GWT_VERSION, true );

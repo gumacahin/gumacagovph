@@ -2,7 +2,7 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package govph
+ * @package gumacagwt
  */
 
 $active_panel_count = 0;

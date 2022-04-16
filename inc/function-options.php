@@ -71,7 +71,7 @@ class GOVPH {
 	 * @return void
 	 */
 	public function __construct() {
-		$this->options = get_option( 'govph_options', array() );
+		$this->options = get_option( 'govph_options' );
 		// to avoid warnings, reinstatiate all arrays that does not exist.
 		if ( count( $this->options ) > 0 ) {
 			$this->options = array_merge( $this->_default_options, $this->options );
